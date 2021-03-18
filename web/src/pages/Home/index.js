@@ -6,9 +6,14 @@ import {IoIosAdd} from 'react-icons/io'
 import {MdCreate} from 'react-icons/md'
 import {MdFormatAlignLeft}from 'react-icons/md'
 import {MdDelete}from 'react-icons/md'
-
+import {Link} from  'react-router-dom'
 export default function Home(){
 
+
+  function newStudent(){
+
+
+  }
 
     return (
                <div id="home-page">
@@ -37,8 +42,16 @@ export default function Home(){
                             {/*<span>todos estudantes</span>*/}
                             <ul>
                               <li className="select">Recentes</li>
-                               <li><IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Estudante</li>
-                                <li><MdCreate className="ic-left" color="#cbcbd6" size={25}/>Editar Estudante</li>
+                              <Link to="/student">
+                               <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Estudante
+                               </Link>
+
+                               <Link>
+                               <li><MdCreate className="ic-left" color="#cbcbd6" size={25}/>Editar Estudante</li>
+                               
+                               </Link>
+                                
+       
                                  <li><MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/> listar Estudante</li>
                                   <li><MdDelete className="ic-left" color="#cbcbd6" size={25}/> Deletar Estudante</li>
                                    <li><IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Quarto</li>
