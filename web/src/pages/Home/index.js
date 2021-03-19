@@ -47,7 +47,7 @@ export default function Home(){
                                </Link>
 
                                <Link>
-                               <li><MdCreate className="ic-left" color="#cbcbd6" size={25}/>Editar Estudante</li>
+                               <MdCreate className="ic-left" color="#cbcbd6" size={25}/>Editar Estudante
                                
                                </Link>
                                 
