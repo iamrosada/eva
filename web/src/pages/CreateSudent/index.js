@@ -73,13 +73,13 @@ export default function CreateStudente(){
                                          type="text" 
                                          name="" 
                                          id="input-surname"
-                                        placeholder="surname"
+                                        placeholder="Surname"
                                          />    
                                     </div>
                                     <div id="fullname">
                                         <strong>Full name</strong>
                                         <input 
-                                         placeholder="fullname"
+                                         placeholder="Fullname"
                                          type="text" 
                                          name="" 
                                          id="input-fullname"/>    
@@ -88,36 +88,55 @@ export default function CreateStudente(){
                                 </div>
                                 
 
-                                <div>
-                                         <div>
+                                <div className="name-student">
+                                         <div id="telefone-student">
                                              <strong>Telefone</strong>
-                                            <input aria-label="agua" type="text" name="" id=""/>    
+                                          <input 
+                                           placeholder="+7 9 * * * * * * * 5"
+                                            type="text" 
+                                            name=""
+                                            id="input-telefone"
+                                            />    
                                          </div>
-                                    <div>
-                                        <strong>Full name</strong>
-                                        <input aria-label="agua" type="text" name="" id=""/>    
+                                    <div id="country-student">
+                                        <strong>País</strong>
+                                        <input 
+                                         placeholder="Country "
+                                        type="text"
+                                        name="" 
+                                        id="input-country"
+                                        />    
                                     </div>
                                 </div>
 
-                                <div>
-                                         <div>
-                                             <strong>Telefone</strong>
-                                            <input aria-label="agua" type="text" name="" id=""/>    
+                                <div  className="name-student">
+                                         <div id="room-student" >
+                                             <strong>Room</strong>
+                                            <input
+                                             placeholder="Rooms for students " 
+                                             type="text" 
+                                             name="" 
+                                             id="input-room"/>    
                                          </div>
-                                    <div>
-                                        <strong>Full name</strong>
-                                        <input aria-label="agua" type="text" name="" id=""/>    
+                                    <div id="hostel-student">
+                                        <strong>Hostel</strong>
+                                        <input 
+                                         placeholder="hostel for students " 
+                                         type="text" 
+                                         name="" 
+                                         id="input-hostel"/>    
                                     </div>
-                                    <div>
-                                        <strong>Full name</strong>
-                                        <input aria-label="agua" type="text" name="" id=""/>    
-                                    </div>
-
+                                  
                                     
                                 </div>
 
 
-
+                                <button 
+                                type="submit"
+                                id="submit-student"
+                                >
+                                    SALVAR
+                                </button>
 
 
                             </form>
