@@ -40,7 +40,9 @@ export default function CreateStudente(){
                         <div id="option-student-home-page">
                             {/*<span>todos estudantes</span>*/}
                             <ul>
-                              <li className="select">Recentes</li>
+                            <Link className="select" to="/home">
+                               Recentes
+                            </Link>
                               <Link to="/student">
                                <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Estudante
                                </Link>
