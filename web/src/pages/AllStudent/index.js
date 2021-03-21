@@ -90,45 +90,68 @@ export default function AllStudent(){
                           </form>
 
 
-                          <div id="students">
-                              <span id="borda">2</span>
-                              <span className="sp">Yolanda Barrueco</span>
-                              <div id="univer-home">
-                                <MdSchool color="#cbcbd6"size={20}/>
-                                <span className="sp">UITS</span>
-                               
-                              </div>
-                              <FiChevronRight color="#cbcbd6"size={20}/>
+                          <div id="student-table">
+                             <div id="students-h">
+
+                                  <span id="borda">2</span>
+                                    <span className="sp">Rosada</span>
+                                    <div id="univer-home">
+                                      <MdSchool color="#cbcbd6"size={20}/>
+                                      <span className="sp">UITS</span>
+                                    
+                                    </div>
+                                    <FiChevronRight color="#cbcbd6"size={20}/>
+                             </div>
+                             <table>
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Telephone</th>
+                                      <th>Rooms</th>
+                                      <th>Country</th>
+                                    </tr>
+                                    <tr>
+                                      <td>Luis de Agua</td>
+                                      <td>55577854</td>
+                                      <td>410</td>
+                                      <td>ANGOLA</td>
+
+                                  </tr>
+                                    
+                             </table>
 
                           </div>
+                          <div id="student-table">
+                             <div id="students-h">
 
+                                  <span id="borda">2</span>
+                                    <span className="sp">Rosada</span>
+                                    <div id="univer-home">
+                                      <MdSchool color="#cbcbd6"size={20}/>
+                                      <span className="sp">UITS</span>
+                                    
+                                    </div>
+                                    <FiChevronRight color="#cbcbd6"size={20}/>
+                             </div>
+                             <table>
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Telephone</th>
+                                      <th>Rooms</th>
+                                      <th>Country</th>
+                                    </tr>
+                                    <tr>
+                                      <td>Luis de Agua</td>
+                                      <td>55577854</td>
+                                      <td>410</td>
+                                      <td>ANGOLA</td>
+
+                                  </tr>
+                                    
+                             </table>
+
+                          </div>
                           
-                          <div id="students">
-                              <span id="borda">2</span>
-                              <span className="sp">Yolanda Barrueco</span>
-                              <div id="univer-home">
-                                <MdSchool color="#cbcbd6"size={20}/>
-                                <span className="sp">UITS</span>
-                               
-                              </div>
-                              <FiChevronRight color="#cbcbd6"size={20}/>
-
-                          </div>
-                          <div id="students">
-                              <span id="borda">2</span>
-                              <span className="sp">Yolanda Barrueco</span>
-                              <div id="univer-home">
-                                <MdSchool color="#cbcbd6"size={20}/>
-                                <span className="sp">UITS</span>
-                               
-                              </div>
-                              <FiChevronRight color="#cbcbd6"size={20}/>
-
-                          </div>
-
-
-
-
+                        
 
 
 
