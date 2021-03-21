@@ -113,25 +113,23 @@ section#all-student-home-page{
     display: flex;
 }
 
-#students{
+#students-h{
     display: flex;
-  
     align-items: center;
-    background: white;
-    width: 480px;
-    height: 50px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-family: Roboto;
     letter-spacing: -.03em;
     font-weight: 700;
-    margin-bottom: 10px;
     justify-content: space-between;
-    transition-duration: 0.2s;
+    width: 580px;
    
 }
-
-#students:hover{
+div#student-table{
+    width: 580px;
+    height: 100px;
+    transition-duration: 0.2s;
+    letter-spacing: -.03em;
+    font-weight: 700;
+}
+div#student-table:hover{
     transform:translateX(10px);
 }
 #borda{
@@ -196,3 +194,23 @@ form#form-input-home-page button:hover{
     background: #1aa056;
 }
 
+div#student-table{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: Roboto;
+    margin-bottom: 10px;
+
+}
+th, td {
+    padding: 5px;
+    text-align: left; 
+    font-size: 12px;   
+    font-family: Roboto;
+  }
+  td{
+    color:#cbcbd6
+  }
