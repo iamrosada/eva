@@ -114,7 +114,7 @@ input#input-fullname,input#input-telefone{
    
 }
 button#submit-student{
-    width: 100px;
+    width: 130px;
     height: 40px;
     background: white;
     border-radius: 4px;
@@ -124,6 +124,8 @@ button#submit-student{
     font-weight: bold;
     transition: background-color 0.2s;
     color:  rgb(135, 134, 139);
+    font-family: Roboto;
+    font-size: 12px;
 }
 button#submit-student:hover{
     background: #1aa056;
