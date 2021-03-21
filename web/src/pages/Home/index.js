@@ -54,7 +54,7 @@ export default function Home(){
                                  <Link to="/allstudent">
                                  <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/> listar Estudante</Link>
 
-                                  <Link>
+                                  <Link to="/deletstudent">
                                   <MdDelete className="ic-left" color="#cbcbd6" size={25}/> Deletar Estudante</Link>
 
                                    <Link>

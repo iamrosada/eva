@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./styles.css"
 import {FiChevronRight} from 'react-icons/fi'
 import {MdSchool} from 'react-icons/md'
@@ -8,10 +9,12 @@ import {MdFormatAlignLeft}from 'react-icons/md'
 import {MdDelete}from 'react-icons/md'
 import {Link} from  'react-router-dom'
 import {RiDeleteBin6Line} from 'react-icons/ri'
+import Modal from "./ModalConfirm/Modal"
+
 export default function DeleteStudent(){
 
 
-  
+  const [show, setShow] = useState(false);
 
     return (
                <div id="home-page">
@@ -100,7 +103,11 @@ export default function DeleteStudent(){
                                       <span className="sp">UITS</span>
                                     
                                     </div>
-                                    <RiDeleteBin6Line className="afastar-delete"color="red"size={20}/>
+                                    <RiDeleteBin6Line 
+                                    className="afastar-delete"
+                                    color="red"size={20}
+                                    onClick={() => setShow(true)}
+                                    />
                              </div>
                              <table>
                                     <tr>
@@ -130,7 +137,11 @@ export default function DeleteStudent(){
                                       <span className="sp">UITS</span>
                                     
                                     </div>
-                                    <RiDeleteBin6Line className="afastar-delete" color="red"size={20}/>
+                                    <RiDeleteBin6Line 
+                                    onClick={() => setShow(true)}
+                                    className="afastar-delete" 
+                                    color="red"
+                                    size={20}/>
                              </div>
                              <table>
                                     <tr>
@@ -167,7 +178,31 @@ export default function DeleteStudent(){
                    </section>
 
 
+                   <Modal  onClose={() => setShow(false)} show={show}>
+                     <form id="modal-deletar">
+                       <div id="title-modal">
+                         <h3>Queres Deletar o Estudante ?</h3>
+                       </div>
+                       <div id="modal-button-confirm">
 
+                         <button 
+                         id="confirm"
+                         type="submit"
+                         >
+                           DELETAR
+                         </button>
+                         <button 
+                           type="submit"
+                         id="no-confirm">
+                           SAIR
+                         </button>
+
+                       </div>
+
+
+                     </form>
+
+                   </Modal>
 
 
 
