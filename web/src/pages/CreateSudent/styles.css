@@ -9,9 +9,13 @@
    
     height: 300px;
     border-radius: 4px;
+    
+    
 }
 #form-student{
     padding: 30px;
+    border-radius: 4px;
+    background: white;
 }
 div.name-student{
     display:flex;
@@ -27,16 +31,49 @@ div.name-student{
   flex-direction: column;
 
 }
-input#input-surname,
-input#input-country
-{
+
+input#input-surname:focus {
+    outline: none !important;
+    border:2px solid  #1aa056;;
+    transition: border 0.2s ease 0s
+}
+input#input-country:focus {
+    outline: none !important;
+    border:2px solid  #1aa056;;
+    transition: border 0.2s ease 0s
+}
+input#input-room:focus {
+    outline: none !important;
+    border:2px solid  #1aa056;
+    transition: border 0.2s ease 0s
+}
+input#input-hostel:focus {
+    outline: none !important;
+    border:2px solid  #1aa056;
+    transition: border 0.2s ease 0s
+}
+input#input-fullname:focus {
+    outline: none !important;
+    border:2px solid  #1aa056;
+    transition: border 0.2s ease 0s
+}
+input#input-telefone:focus {
+    outline: none !important;
+    border:2px solid  #1aa056;
+    transition: border 0.2s ease 0s
+}
+
+input#input-surname,input#input-country
+{ 
+    border:2.05px solid  #04D361;
+    transition: border 0.2s ease 0s;
     
     width: 130px;
-    border: none;
+    /*border: none;*/
     border-radius: 4px;
     height: 40px;
     padding: 0 24px;
-    border:0;
+   
     margin-bottom:18px ;
 }
 input#input-room{
@@ -46,7 +83,8 @@ input#input-room{
     border-radius: 4px;
     height: 40px;
     padding: 0 24px;
-    border:0;
+    border:2.05px solid  #04D361;
+    transition: border 0.2s ease 0s;
     margin-bottom:18px ;
 }
 input#input-hostel
@@ -57,7 +95,8 @@ input#input-hostel
     border-radius: 4px;
     height: 40px;
     padding: 0 24px;
-    border:0;
+    border:2.05px solid  #04D361;
+    transition: border 0.2s ease 0s;
     margin-bottom:18px ;
 }
 input#input-fullname,input#input-telefone{
@@ -66,7 +105,8 @@ input#input-fullname,input#input-telefone{
     border-radius: 4px;
     height: 40px;
     padding: 0 24px;
-    border:0;
+    border:2.05px solid  #04D361;
+    transition: border 0.2s ease 0s;
     margin-bottom:18px ;
 }
 #surname{
@@ -74,15 +114,44 @@ input#input-fullname,input#input-telefone{
    
 }
 button#submit-student{
-    width: 80px;
+    width: 100px;
     height: 40px;
-    background: #04D361;
+    background: white;
     border-radius: 4px;
-    border: none;
+    border:2.05px solid  #04D361;
+    transition: border 0.2s ease 0s;
     color:white;
     font-weight: bold;
     transition: background-color 0.2s;
+    color:  rgb(135, 134, 139);
 }
 button#submit-student:hover{
     background: #1aa056;
+    color:white;
+}
+/*input ,texarea{
+    outline: 0px;
+    background: rgb(18, 18, 20);
+    border: 2px solid rgb(40, 39, 44);
+    border-radius: 5px;
+    height: 50px;
+    padding: 15px 21px;
+    color: rgb(255, 255, 255);
+    font-family: Roboto, sans-serif;
+    font-size: 17px;
+    width: 100%;
+    transition: border 0.2s ease 0s
+}*/
+strong{
+    display: block;
+    width: 100%;
+    min-height: 16px;
+    
+    color: white;
+    margin-bottom: 8px;
+    color:  rgb(135, 134, 139);
+    font-size:12px;
+    font-family: Roboto;
+    font-weight: 400;
+
 }
