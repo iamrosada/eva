@@ -1,5 +1,6 @@
 
 import {Route,Switch} from 'react-router-dom'
+import AllStudent from './pages/AllStudent';
 import CreateStudent from './pages/CreateSudent';
 import EditStudent from './pages/EditStudent';
 import Home from './pages/Home';
@@ -18,7 +19,7 @@ function Routes(){
         <Route path="/home" exact component={Home} />
         <Route path="/student" exact component={CreateStudent} />
         <Route path="/editstudent" exact component={EditStudent} />
-
+        <Route path="/allstudent" exact component={AllStudent} />
 
     </Switch>
         
