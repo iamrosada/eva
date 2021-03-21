@@ -7,7 +7,6 @@ import {MdCreate} from 'react-icons/md'
 import {MdFormatAlignLeft}from 'react-icons/md'
 import {MdDelete}from 'react-icons/md'
 import {Link} from  'react-router-dom'
-import {RiDeleteBin6Line} from 'react-icons/ri'
 
 export default function AllStudent(){
 
