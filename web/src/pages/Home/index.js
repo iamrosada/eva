@@ -10,10 +10,7 @@ import {Link} from  'react-router-dom'
 export default function Home(){
 
 
-  function newStudent(){
-
-
-  }
+  
 
     return (
                <div id="home-page">
@@ -48,7 +45,7 @@ export default function Home(){
                                <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Estudante
                                </Link>
 
-                               <Link>
+                               <Link to="/editstudent">
                                <MdCreate className="ic-left" color="#cbcbd6" size={25}/>Editar Estudante
                                
                                </Link>
