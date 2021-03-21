@@ -47,7 +47,7 @@ export default function CreateStudente(){
                                <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Estudante
                                </Link>
 
-                               <Link>
+                               <Link to="/editstudent" >
                                <MdCreate className="ic-left" color="#cbcbd6" size={25}/>Editar Estudante
                                
                                </Link>
