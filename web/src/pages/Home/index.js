@@ -51,15 +51,33 @@ export default function Home(){
                                </Link>
                                 
        
-                                 <li><MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/> listar Estudante</li>
-                                  <li><MdDelete className="ic-left" color="#cbcbd6" size={25}/> Deletar Estudante</li>
-                                   <li><IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Quarto</li>
-                                    <li><MdDelete className="ic-left" color="#cbcbd6" size={25}/>Deletar Quarto </li>
-                                     <li><MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>listar Quartos</li>
-                                   <li><IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Criar País</li>
-                                 <li><MdCreate className="ic-left"color="#cbcbd6" size={25}/>Editar País</li>
-                               <li><MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>Listar País</li>
-                            <li><MdDelete  className="ic-left" color="#cbcbd6" size={25}/>Deletar País</li>
+                                 <Link to="/allstudent">
+                                 <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/> listar Estudante</Link>
+
+                                  <Link>
+                                  <MdDelete className="ic-left" color="#cbcbd6" size={25}/> Deletar Estudante</Link>
+
+                                   <Link>
+                                   <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Quarto</Link>
+
+                                    <Link>
+                                    <MdDelete className="ic-left" color="#cbcbd6" size={25}/>Deletar Quarto </Link>
+
+                                     <Link>
+                                     <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>listar Quartos</Link>
+
+                                   <Link>
+                                   <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Criar País</Link>
+
+                                 <Link>
+                                 <MdCreate className="ic-left"color="#cbcbd6" size={25}/>Editar País</Link>
+
+                               <Link>
+                               <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>Listar País</Link>
+
+                            <Link>
+                            <MdDelete  className="ic-left" color="#cbcbd6" size={25}/>Deletar País</Link>
+
                             
                             </ul>
                         </div>
