@@ -7,6 +7,7 @@ import {MdCreate} from 'react-icons/md'
 import {MdFormatAlignLeft}from 'react-icons/md'
 import {MdDelete}from 'react-icons/md'
 import {Link} from  'react-router-dom'
+import {RiDeleteBin6Line} from 'react-icons/ri'
 
 export default function AllStudent(){
 
@@ -55,7 +56,7 @@ export default function AllStudent(){
                                  <Link to="/allstudent">
                                  <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/> listar Estudante</Link>
 
-                                  <Link>
+                                  <Link to="/deletstudent">
                                   <MdDelete className="ic-left" color="#cbcbd6" size={25}/> Deletar Estudante</Link>
 
                                    <Link>
