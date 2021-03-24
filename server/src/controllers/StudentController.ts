@@ -1,30 +1,58 @@
 import { Response , Request} from "express"
 import { getCustomRepository } from "typeorm";
+import { CountriesRepository } from "../repositories/CountriesRepository";
 import { StudentsRepository } from "../repositories/StudentsRepository";
 
 
 class StudentController {
     async create(request:Request , response:Response){
-       
+        //console.log(request.body)
         const {surname , full_name,number_phone, country, rooms} = request.body;
-
+        let countryId;
         const studentsRepository = getCustomRepository(StudentsRepository);
+        const countryRepository =  getCustomRepository(CountriesRepository)
 
         const stundAlreadyExists = await studentsRepository.findOne({
             number_phone,
         })
+        
+        const countryUpperCase = country.toUpperCase();
+        //console.log(countryUpperCase)
+        //process.exit()
+
+        const countryAlreadyExists = await countryRepository.findOne({
+            countryStudent:countryUpperCase 
+        })
+
+        console.log(countryAlreadyExists)
 
         if(stundAlreadyExists){
             return response.status(400).json({
-                error:"Studen already exits",
+                error:"Student already exits",
             })
         
         }
 
+        if(!countryAlreadyExists){
+            const newCountry = await countryRepository.create({
+                countryStudent:countryUpperCase
+            })
+           
+            await countryRepository.save(newCountry)
+            countryId = newCountry.id;
+        }
+        else  countryId = countryAlreadyExists.id;
+   
+
         const student = studentsRepository.create({
-            surname , full_name,number_phone,country, rooms
+            surname, 
+            full_name,
+            number_phone,
+            country:countryId,
+            rooms
         })
         
+
         await studentsRepository.save(student)
 
         return response.send(student);
