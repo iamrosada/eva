@@ -16,7 +16,7 @@ import { Room } from "./Room";
      full_name:string;
   
      @ManyToOne(type=>Country,student=>Student,{eager:true})
-     country:Country[];
+     country:Country;
 
      @ManyToOne(type=>Room, students=>Student,{eager:true})
      rooms: Room[];
