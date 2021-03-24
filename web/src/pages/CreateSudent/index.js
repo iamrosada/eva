@@ -27,7 +27,7 @@ export default function CreateStudente(){
           if( surname!== ''&& fullname!==''&& phone!==''&& country!==''){
   
               const response = await api.post("/students",data)
-              
+             
               if(response.status!==400){
                 alert('Estudante Criado com sucesso')
               }
