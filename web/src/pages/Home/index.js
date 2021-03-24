@@ -7,6 +7,7 @@ import {MdCreate} from 'react-icons/md'
 import {MdFormatAlignLeft}from 'react-icons/md'
 import {MdDelete}from 'react-icons/md'
 import {Link} from  'react-router-dom'
+
 export default function Home(){
 
 
@@ -38,7 +39,7 @@ export default function Home(){
                         <div id="option-student-home-page">
                             {/*<span>todos estudantes</span>*/}
                             <ul>
-                            <Link className="select" to="/home">
+                            <Link className="sess" to="/home">
                                Recentes
                             </Link>
                               <Link to="/student">
@@ -57,25 +58,25 @@ export default function Home(){
                                   <Link to="/deletstudent">
                                   <MdDelete className="ic-left" color="#cbcbd6" size={25}/> Deletar Estudante</Link>
 
-                                   <Link>
+                                   <Link to="/createrooms">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Quarto</Link>
 
-                                    <Link>
+                                    <Link to="/deleterooms">
                                     <MdDelete className="ic-left" color="#cbcbd6" size={25}/>Deletar Quarto </Link>
 
-                                     <Link>
+                                     <Link to="/allrooms">
                                      <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>listar Quartos</Link>
 
-                                   <Link>
+                                   <Link to="/createcountry">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Criar País</Link>
 
-                                 <Link>
+                                 <Link to="/editercountry">
                                  <MdCreate className="ic-left"color="#cbcbd6" size={25}/>Editar País</Link>
 
-                               <Link>
+                               <Link to="/allcountry">
                                <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>Listar País</Link>
 
-                            <Link>
+                            <Link to="/deletercountry">
                             <MdDelete  className="ic-left" color="#cbcbd6" size={25}/>Deletar País</Link>
 
                             
