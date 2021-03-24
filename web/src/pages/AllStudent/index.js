@@ -58,7 +58,7 @@ export default function AllStudent(){
                                   <Link to="/deletstudent">
                                   <MdDelete className="ic-left" color="#cbcbd6" size={25}/> Deletar Estudante</Link>
 
-                                   <Link>
+                                   <Link to="/createrooms">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Quarto</Link>
 
                                     <Link>
