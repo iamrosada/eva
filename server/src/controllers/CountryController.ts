@@ -8,11 +8,14 @@ class CountryController{
         const { countryStudent} = request.body;
 
         const countryRepository = getCustomRepository(CountriesRepository);
-        const stundAlreadyExists = await countryRepository.findOne({
-            countryStudent,
+        const countryUpperCase = countryStudent.toUpperCase();
+        // console.log(countryUpperCase)
+        //process.exit()
+        const countryAlreadyExists = await countryRepository.findOne({
+            countryStudent:countryUpperCase,
         })
 
-        if(stundAlreadyExists){
+        if(countryAlreadyExists){
             return response.status(400).json({
                 error:"Country already exits",
             })
@@ -20,7 +23,7 @@ class CountryController{
         }
 
         const CountryStudenty = countryRepository .create({
-            countryStudent,
+            countryStudent:countryUpperCase,
         })
         
         await countryRepository.save(CountryStudenty)
