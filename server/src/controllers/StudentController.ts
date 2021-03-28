@@ -31,7 +31,7 @@ class StudentController {
                 error:"Student already exits",
             })
         
-        }
+         }
 
         if(!countryAlreadyExists){
             const newCountry = await countryRepository.create({
@@ -65,10 +65,22 @@ class StudentController {
         const studentsRepository = getCustomRepository(StudentsRepository);
 
         const allStudents = await studentsRepository.find()
-
+        //const allStudents = await studentsRepository.findOne(request.params.surname)
         return response.json(allStudents);
 
     }
+    async showforSurname(request:Request, response:Response){
+       // const {surname} = request.body;
+        const studentsRepository = getCustomRepository(StudentsRepository);
+
+        const allStudents = await studentsRepository.findOne(request.params)
+        /*const allStudents = await studentsRepository.findOne({
+         surname,
+        })*/
+        return response.json(allStudents);
+
+    }
+
 
     async update(request:Request, response:Response):Promise<Response>{
         const studentsRepository = getCustomRepository(StudentsRepository);
