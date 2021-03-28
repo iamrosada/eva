@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,   useEffect } from "react";
 
 import {FiChevronRight} from 'react-icons/fi'
 import {MdSchool} from 'react-icons/md'
@@ -9,10 +9,36 @@ import {MdFormatAlignLeft}from 'react-icons/md'
 import {MdDelete}from 'react-icons/md'
 import {Link} from  'react-router-dom'
 import Modal from './Modal/Modal'
+import api from "../../services/api";
+
+
 export default function EditStudent(){
 
-    const [show, setShow] = useState(false);
+   const [ show,setShow] = useState(false);
+   const [allstudent,setAllStudent] = useState([]);
+   const [search, setSearch] = useState("");
+   const [filteredStudenty, setFilteredStudenty] = useState([]);
+   
+   useEffect(() => {
+     const fetchData = async () => {
+       const result =  await api.get(`/students/`)
+  
+      setAllStudent(result.data);
+     
+     };
+     
+     fetchData();
+   }, []);
 
+   useEffect(() => {
+    setFilteredStudenty(
+      allstudent.filter((student) =>
+        student.surname.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }, [search, allstudent]);
+
+  
     return (
                <div id="home-page">
                    <header id="header-home-page">
@@ -21,7 +47,7 @@ export default function EditStudent(){
                          
                       </div>
                       <div>
-                          {/*<input id="input-home-page" placeholder=" search students" type="text"/> */}
+                         
                       </div>
                      
                      <div id="avatar-home-page">
@@ -37,7 +63,7 @@ export default function EditStudent(){
                    <section id="all-student-home-page">
                       <div id="perfil-student-home-page">
                         <div id="option-student-home-page">
-                            {/*<span>todos estudantes</span>*/}
+                          
                             <ul>
                             <Link className="select" to="/home">
                                Recentes
@@ -67,7 +93,7 @@ export default function EditStudent(){
                                      <Link to="/allrooms">
                                      <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>listar Quartos</Link>
 
-                                   <Link to="/createcountry">
+                                   <Link to="/createstudent">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Criar País</Link>
 
                                  <Link to="/editercountry">
@@ -83,27 +109,54 @@ export default function EditStudent(){
                             </ul>
                         </div>
                         <div id="for-search">
-                          <form id="form-input-home-page"action="">
-                               <input placeholder="search students"/>
-                               <button type="submit">Search</button>
+                          <form 
+                          id="form-input-home-page"
+                          action=""
+                         
+                          >
+
+                               <input 
+                               placeholder="search students"
+                              
+                               onChange={(e) => setSearch(e.target.value)}
+                               />
+                               <button 
+                               type="submit"
+                            
+
+                               >
+                                 Search</button>
 
                           </form>
 
+                          
 
+                   
+                         
+                        
+                      {
+                      filteredStudenty.map(item =>(
                           <div 
                           id="students"
                           onClick={() => setShow(true)}
+                          key={item.id}
                           >
                               <span id="borda">2</span>
-                              <span className="sp">Yolanda Barrueco</span>
+                              <span className="sp">{item.surname} {item.full_name}</span>
                               <div id="univer-home">
                                 <MdSchool color="#cbcbd6"size={20}/>
                                 <span className="sp">UITS</span>
-                               
                               </div>
                               <FiChevronRight color="#cbcbd6"size={20}/>
 
                           </div>
+                        ))
+                      }
+                       
+                            
+                    
+                           
+                          
                           <Modal  onClose={() => setShow(false)} show={show}>
                       
                           <div id="for-create-student">
@@ -210,18 +263,7 @@ export default function EditStudent(){
                    </section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
                </div>
     );
 }
+
