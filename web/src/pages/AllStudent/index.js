@@ -1,3 +1,4 @@
+import React, { useState,   useEffect } from "react";
 import "./styles.css"
 import {FiChevronRight} from 'react-icons/fi'
 import {MdSchool} from 'react-icons/md'
@@ -7,9 +8,31 @@ import {MdCreate} from 'react-icons/md'
 import {MdFormatAlignLeft}from 'react-icons/md'
 import {MdDelete}from 'react-icons/md'
 import {Link} from  'react-router-dom'
-
+import api from "../../services/api";
 export default function AllStudent(){
 
+  const [allstudent,setAllStudent] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filteredStudenty, setFilteredStudenty] = useState([]);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const result =  await api.get(`/students/`)
+ 
+     setAllStudent(result.data);
+    console.log(result.data)
+    };
+    
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+   setFilteredStudenty(
+     allstudent.filter((student) =>
+       student.surname.toLowerCase().includes(search.toLowerCase())
+     )
+   );
+ }, [search, allstudent]);
 
   
 
@@ -21,7 +44,6 @@ export default function AllStudent(){
                          
                       </div>
                       <div>
-                          {/*<input id="input-home-page" placeholder=" search students" type="text"/> */}
                       </div>
                      
                      <div id="avatar-home-page">
@@ -84,72 +106,55 @@ export default function AllStudent(){
                         </div>
                         <div id="for-search">
                           <form id="form-input-home-page"action="">
-                               <input placeholder="search students"/>
+                          <input 
+                               placeholder="search students"
+                               onChange={(e) => setSearch(e.target.value)}
+                               />
                                <button type="submit">Search</button>
 
                           </form>
 
 
-                          <div id="student-table">
-                             <div id="students-h">
+                       { 
+                       
+                       filteredStudenty.map(item=>(
+                         
+                     
+                            <div 
+                            id="student-table"
+                            key={item.id}
+                            >
+                            <div id="students-h">
 
-                                  <span id="borda">2</span>
-                                    <span className="sp">Rosada</span>
-                                    <div id="univer-home">
-                                      <MdSchool color="#cbcbd6"size={20}/>
-                                      <span className="sp">UITS</span>
+                                 <span id="borda">2</span>
+                                   <span className="sp">{item.surname}</span>
+                                   <div id="univer-home">
+                                     <MdSchool color="#cbcbd6"size={20}/>
+                                     <span className="sp">UITS</span>
+                                   
+                                   </div>
+                                   <FiChevronRight color="#cbcbd6"size={20}/>
+                            </div>
+                            <table>
+                                   <tr>
+                                     <th>Name</th>
+                                     <th>Telephone</th>
+                                     <th>Rooms</th>
+                                     <th>Country</th>
+                                   </tr>
+                                   <tr>
+                                     <td>{item.full_name}</td>
+                                     <td>{item.number_phone}</td>
+                                     <td>410</td>
+                                     <td>{item.country.countryStudent}</td>
                                     
-                                    </div>
-                                    <FiChevronRight color="#cbcbd6"size={20}/>
-                             </div>
-                             <table>
-                                    <tr>
-                                      <th>Name</th>
-                                      <th>Telephone</th>
-                                      <th>Rooms</th>
-                                      <th>Country</th>
-                                    </tr>
-                                    <tr>
-                                      <td>Luis de Agua</td>
-                                      <td>55577854</td>
-                                      <td>410</td>
-                                      <td>ANGOLA</td>
+                                 </tr>
+                                   
+                            </table>
 
-                                  </tr>
-                                    
-                             </table>
-
-                          </div>
-                          <div id="student-table">
-                             <div id="students-h">
-
-                                  <span id="borda">2</span>
-                                    <span className="sp">Rosada</span>
-                                    <div id="univer-home">
-                                      <MdSchool color="#cbcbd6"size={20}/>
-                                      <span className="sp">UITS</span>
-                                    
-                                    </div>
-                                    <FiChevronRight color="#cbcbd6"size={20}/>
-                             </div>
-                             <table>
-                                    <tr>
-                                      <th>Name</th>
-                                      <th>Telephone</th>
-                                      <th>Rooms</th>
-                                      <th>Country</th>
-                                    </tr>
-                                    <tr>
-                                      <td>Luis de Agua</td>
-                                      <td>55577854</td>
-                                      <td>410</td>
-                                      <td>ANGOLA</td>
-
-                                  </tr>
-                                    
-                             </table>
-
-                          </div>
+                         </div>
+                        ))} 
+                          
                           
                         
 
