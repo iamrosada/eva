@@ -117,14 +117,11 @@ export default function EditStudent(){
 
                                <input 
                                placeholder="search students"
-                              
                                onChange={(e) => setSearch(e.target.value)}
                                />
                                <button 
                                type="submit"
-                            
-
-                               >
+                                >
                                  Search</button>
 
                           </form>
@@ -155,15 +152,28 @@ export default function EditStudent(){
                        
                             
                     
-                           
+                   
+                       <>
+                              
+                       {  filteredStudenty.map(all=>(   
+                        <Modal  
+                          onClose={() => setShow(false)} 
+                          show={show}
+                          key={all.id}
+                          >
+                        
+                       
+                        <div 
+                          id="for-create-student"
+                       
+                          >
+                         
+                                <form  id="form-student">
+                               
                           
-                          <Modal  onClose={() => setShow(false)} show={show}>
-                      
-                          <div id="for-create-student">
-                            <form id="form-student">
-                                <div className="name-student">
-                                    <div id="surname">
-                                        <strong>Surname</strong>
+                                <div  className="name-student">
+                                    <div   id="surname">
+                                        <strong>{all.surname}</strong>
                                         <input 
                                          type="text" 
                                          name="" 
@@ -233,17 +243,21 @@ export default function EditStudent(){
                                     SALVAR
                                 </button>
 
-
+                               
+                              
                             </form>
-
-
-
-
-
-
+                           
                         </div>
-                          </Modal>
+                        
+                        
+                       
+                    
+                        
 
+                       </Modal>
+                       )) }
+                       </>
+                      
                           
                           
                           
