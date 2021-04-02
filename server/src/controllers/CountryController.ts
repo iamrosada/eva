@@ -1,6 +1,6 @@
 import { Response , Request} from "express"
 import { getCustomRepository } from "typeorm";
-import { CountriesRepository } from "../repositories/CountriesRepository";
+import {  CountriesRepository } from "../repositories/CountriesRepository";
 
 class CountryController{
 
@@ -39,12 +39,11 @@ class CountryController{
         const countryRepository = getCustomRepository(CountriesRepository);
 
         const allcountries = await countryRepository.find()
-
+             console.log(allcountries);
         return response.json(allcountries);
 
     }
-
-
+ 
 }
 
 export {CountryController}
