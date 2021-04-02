@@ -1,5 +1,5 @@
 
-
+import React, { useState,   useEffect } from "react";
 import "./styles.css"
 import {FiChevronRight} from 'react-icons/fi'
 import {MdSchool} from 'react-icons/md'
@@ -9,10 +9,37 @@ import {MdCreate} from 'react-icons/md'
 import {MdFormatAlignLeft}from 'react-icons/md'
 import {MdDelete}from 'react-icons/md'
 import {Link} from  'react-router-dom'
+import {RiDeleteBin6Line} from 'react-icons/ri'
+import Modal from "./ModalConfirm/Modal"
+import api from "../../services/api";
+export default function  DeleterRooms(){
 
-export default function AllRooms(){
+  const [show, setShow] = useState(false)
+  const [allstudent,setAllStudent] = useState([]);
+  const [search, setSearch] = useState("");
+  const [filteredStudenty, setFilteredStudenty] = useState([]);
+  const [ modalContant,setModalContant] = useState({}); 
+ 
+  useEffect(() => {
+    const fetchData = async () => {
+      const result =  await api.get(`/students/`)
+ 
+     setAllStudent(result.data);
+     console.log(result.data)
+    };
+    
+    fetchData();
+  }, []);
 
 
+  
+  useEffect(() => {
+   setFilteredStudenty(
+     allstudent.filter((student) =>
+       student.surname.toLowerCase().includes(search.toLowerCase())||  student.full_name.toLowerCase().includes(search.toLowerCase()) //|| student.rooms.numberofRoom.toLowerCase().includes(search.toLowerCase())
+     )
+   );
+ }, [search, allstudent]);
   
 
     return (
@@ -39,9 +66,10 @@ export default function AllRooms(){
                    <section id="all-student-home-page">
                       <div id="perfil-student-home-page">
                         <div id="option-student-home-page">
-                            {/*<span>todos estudantes</span>*/}
+                         
                             <ul>
-                            <Link className="select" to="/home">
+                                                      {/*<span>todos estudantes</span>*/}
+                                                      <Link className="sess" to="/home">
                                Recentes
                             </Link>
                               <Link to="/student">
@@ -63,66 +91,94 @@ export default function AllRooms(){
                                    <Link to="/createrooms">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Quarto</Link>
 
-                                    <Link to="/deleterooms">
-                                    <MdDelete className="ic-left" color="#cbcbd6" size={25}/>Deletar Quarto </Link>
-
+                                   
                                      <Link to="/allrooms">
                                      <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>listar Quartos</Link>
 
                                    <Link to="/createcountry">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Criar País</Link>
 
-                                 <Link to="/editercountry">
-                                 <MdCreate className="ic-left"color="#cbcbd6" size={25}/>Editar País</Link>
+                                
 
                                <Link to="/allcountry">
                                <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>Listar País</Link>
 
-                            <Link to="/deletercountry">
-                            <MdDelete  className="ic-left" color="#cbcbd6" size={25}/>Deletar País</Link>
 
-                            
+                          
                             </ul>
                         </div>
                         <div id="for-search">
                           <form id="form-input-home-page"action="">
-                               <input placeholder="search students"/>
+                          <input 
+                               placeholder="search students"
+                               onChange={(e) => setSearch(e.target.value)}
+                               />
                                <button type="submit">Search</button>
 
                           </form>
 
 
-                          <div id="students">
-                              <span id="room-number">246</span>
-                              <span className="sp"> Yolanda Barrueco</span>
-                              <span className="sp">Yolanda Barrueco</span>
-                              <span className="sp">Yolanda Barrueco </span>
+                        {
+                          filteredStudenty.map(item=>(
+                            <div 
+                            id="students"
+                            key={item.id}
+
+                            onClick={() =>{
+                              setShow(true);
                               
-                              <FiChevronRight color="#cbcbd6"size={20}/>
+                               setModalContant(item);
+                             }}
+                            >
+                            <span id="room-number">{item.rooms.numberofRoom}</span>
+                            <span className="sp"> {item.surname} {item.full_name}</span>
+                            <span className="sp">{item.country.countryStudent}</span>
+                          
+                            
+                            <RiDeleteBin6Line 
+                                  className="afastar-delete"
+                                  color="red"size={20}/>
+                             
+                    
+                        </div>
 
-                          </div>
+                          ))
 
-                          <div id="students">
-                              <span id="room-number">286</span>
-                              <span className="sp"> Yolanda Barrueco</span>
-                              <span className="sp">Yolanda Barrueco</span>
-                              <span className="sp">Yolanda Barrueco </span>
-                              
-                              <FiChevronRight color="#cbcbd6"size={20}/>
+                        }
+                          
 
-                          </div>
+                         
+                   <Modal  onClose={() => setShow(false)} show={show}>
+                     <form id="modal-deletar">
+                       <div id="title-modal">
+                         <h3>Queres Deletar o Quarto {modalContant?.rooms?.numberofRoom} ? </h3>
+                       </div>
+                       <div id="modal-button-confirm">
 
-                          <div id="students">
-                              <span id="room-number">546</span>
-                              <span className="sp"> Yolanda Barrueco</span>
-                              <span className="sp">Yolanda Barrueco</span>
-                              <span className="sp">Yolanda Barrueco </span>
-                              
-                              <FiChevronRight color="#cbcbd6"size={20}/>
+                         <button 
+                         id="confirm"
+                         type="submit"
+                         >
+                           DELETAR
+                         </button>
+                         <button 
+                           type="submit"
+                         id="no-confirm">
+                           CANCELAR
+                         </button>
 
-                          </div>
+                       </div>
 
 
+                     </form>
+
+                   </Modal>
+
+
+
+                         
+                          
+                          
 
 
 
