@@ -61,7 +61,7 @@ export default function AllStudent(){
                         <div id="option-student-home-page">
                             {/*<span>todos estudantes</span>*/}
                             <ul>
-                            <Link className="select" to="/home">
+                            <Link className="sess" to="/home">
                                Recentes
                             </Link>
                               <Link to="/student">
@@ -83,23 +83,17 @@ export default function AllStudent(){
                                    <Link to="/createrooms">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Quarto</Link>
 
-                                    <Link>
-                                    <MdDelete className="ic-left" color="#cbcbd6" size={25}/>Deletar Quarto </Link>
-
-                                     <Link>
+                                   
+                                     <Link to="/allrooms">
                                      <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>listar Quartos</Link>
 
-                                   <Link>
+                                   <Link to="/createcountry">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Criar País</Link>
 
-                                 <Link>
-                                 <MdCreate className="ic-left"color="#cbcbd6" size={25}/>Editar País</Link>
+                                
 
-                               <Link>
+                               <Link to="/allcountry">
                                <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>Listar País</Link>
-
-                            <Link>
-                            <MdDelete  className="ic-left" color="#cbcbd6" size={25}/>Deletar País</Link>
 
                             
                             </ul>
@@ -145,7 +139,7 @@ export default function AllStudent(){
                                    <tr>
                                      <td>{item.full_name}</td>
                                      <td>{item.number_phone}</td>
-                                     <td>410</td>
+                                     <td>{item.rooms.numberofRoom}</td>
                                      <td>{item.country.countryStudent}</td>
                                     
                                  </tr>
