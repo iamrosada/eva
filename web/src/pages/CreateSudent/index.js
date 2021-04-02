@@ -10,33 +10,37 @@ import {MdFormatAlignLeft}from 'react-icons/md'
 import {MdDelete}from 'react-icons/md'
 import {Link} from  'react-router-dom'
 import api from '../../services/api'
+
+import {toast} from 'react-toastify'
+
+
 export default function CreateStudente(){
 
     const [surname, setSurname] = useState('');
     const [fullname, setFullname] = useState('')
     const [phone, setPhone] = useState('')
     const [country, setCountry] = useState('')
-    //const [rooms, setRooms] = useState('')
+    const [rooms, setRooms] = useState('')
     
     async function CreateNewStudent(e){
       e.preventDefault();
-      const data = {surname:surname,full_name:fullname,number_phone:phone,country:country/*,rooms:rooms*/}
+      const data = {surname:surname,full_name:fullname,number_phone:phone,country:country,rooms:rooms}
      
       console.log(data);
   
-          if( surname!== ''&& fullname!==''&& phone!==''&& country!==''){
+          if( surname!== ''&& fullname!==''&& phone!==''&& country!==''&& rooms!==''){
   
               const response = await api.post("/students",data)
              
               if(response.status!==400){
-                alert('Estudante Criado com sucesso')
+                toast.success('Estudante Criado com sucesso')
               }
               else{
-                  alert("Studen already exits")
+                toast.error("Studen already exits")
               }
   
           } else{
-              alert('Error preencha os campos !')
+            toast.error('Error preencha os campos !')
           }
           
           }
@@ -69,7 +73,7 @@ export default function CreateStudente(){
                         <div id="option-student-home-page">
                             {/*<span>todos estudantes</span>*/}
                             <ul>
-                            <Link className="select" to="/home">
+                            <Link className="sess" to="/home">
                                Recentes
                             </Link>
                               <Link to="/student">
@@ -91,23 +95,17 @@ export default function CreateStudente(){
                                    <Link to="/createrooms">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Quarto</Link>
 
-                                    <Link to="/deleterooms">
-                                    <MdDelete className="ic-left" color="#cbcbd6" size={25}/>Deletar Quarto </Link>
-
+                                   
                                      <Link to="/allrooms">
                                      <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>listar Quartos</Link>
 
                                    <Link to="/createcountry">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Criar País</Link>
 
-                                 <Link to="/editercountry">
-                                 <MdCreate className="ic-left"color="#cbcbd6" size={25}/>Editar País</Link>
+                                
 
                                <Link to="/allcountry">
                                <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>Listar País</Link>
-
-                            <Link to="/deletercountry">
-                            <MdDelete  className="ic-left" color="#cbcbd6" size={25}/>Deletar País</Link>
 
                             
                             </ul>
@@ -177,7 +175,8 @@ export default function CreateStudente(){
                                              type="text" 
                                              name="" 
                                              id="input-room"
-                                           
+                                             value={rooms}
+                                             onChange={e=>setRooms(e.target.value)}
                                              />    
                                          </div>
                                     <div id="hostel-student">
