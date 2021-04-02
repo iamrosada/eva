@@ -15,16 +15,23 @@ import api from "../../services/api";
 export default function EditStudent(){
 
    const [ show,setShow] = useState(false);
+   const [ modalContant,setModalContant] = useState({}); 
    const [allstudent,setAllStudent] = useState([]);
    const [search, setSearch] = useState("");
    const [filteredStudenty, setFilteredStudenty] = useState([]);
    
+   const [ usernameStudent,setUsernameStudent] = useState('');
+   const [fullnameStudent,setFullnameStudent] = useState('');
+   const [countries,setCountryStudent] = useState('');
+   const [phoneStudent,setPhoneStudent] = useState('');
+   const [roomStudent,setRoomStudent] = useState('');
+
    useEffect(() => {
      const fetchData = async () => {
        const result =  await api.get(`/students/`)
   
       setAllStudent(result.data);
-     
+      console.log(result.data)
      };
      
      fetchData();
@@ -33,12 +40,33 @@ export default function EditStudent(){
    useEffect(() => {
     setFilteredStudenty(
       allstudent.filter((student) =>
-        student.surname.toLowerCase().includes(search.toLowerCase())
+        student.surname.toLowerCase().includes(search.toLowerCase())||  student.full_name.toLowerCase().includes(search.toLowerCase())
       )
     );
   }, [search, allstudent]);
+ 
+  async function UpdateStudent(e, studentId){
+    e.preventDefault();
+    console.log("O ID"+studentId)
+    const data = {surname: usernameStudent,full_name:fullnameStudent,number_phone:phoneStudent,/*country:countries,rooms:roomStudent*/}
+   
+    console.log(data);
+   
 
-  
+        if( usernameStudent!== ''&& fullnameStudent!==''&& phoneStudent!==''){
+
+            const response = await api.put(`/students/${studentId}`,data)
+           
+            if(response.status!==400){
+              alert('Estudante update com sucesso')
+            }
+            
+
+        } else{
+            alert('Error preencha os campos !')
+        }
+        
+        }
     return (
                <div id="home-page">
                    <header id="header-home-page">
@@ -65,7 +93,7 @@ export default function EditStudent(){
                         <div id="option-student-home-page">
                           
                             <ul>
-                            <Link className="select" to="/home">
+                            <Link className="sess" to="/home">
                                Recentes
                             </Link>
                               <Link to="/student">
@@ -87,23 +115,17 @@ export default function EditStudent(){
                                    <Link to="/createrooms">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Quarto</Link>
 
-                                    <Link to="/deleterooms">
-                                    <MdDelete className="ic-left" color="#cbcbd6" size={25}/>Deletar Quarto </Link>
-
+                                   
                                      <Link to="/allrooms">
                                      <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>listar Quartos</Link>
 
-                                   <Link to="/createstudent">
+                                   <Link to="/createcountry">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Criar País</Link>
 
-                                 <Link to="/editercountry">
-                                 <MdCreate className="ic-left"color="#cbcbd6" size={25}/>Editar País</Link>
+                                
 
                                <Link to="/allcountry">
                                <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>Listar País</Link>
-
-                            <Link to="/deletercountry">
-                            <MdDelete  className="ic-left" color="#cbcbd6" size={25}/>Deletar País</Link>
 
                             
                             </ul>
@@ -135,7 +157,11 @@ export default function EditStudent(){
                       filteredStudenty.map(item =>(
                           <div 
                           id="students"
-                          onClick={() => setShow(true)}
+                          onClick={() =>{
+                           setShow(true);
+                           
+                            setModalContant(item);
+                          }}
                           key={item.id}
                           >
                               <span id="borda">2</span>
@@ -155,14 +181,12 @@ export default function EditStudent(){
                    
                        <>
                               
-                       {  filteredStudenty.map(all=>(   
+                     
                         <Modal  
                           onClose={() => setShow(false)} 
                           show={show}
-                          key={all.id}
                           >
-                        
-                       
+
                         <div 
                           id="for-create-student"
                        
@@ -173,21 +197,32 @@ export default function EditStudent(){
                           
                                 <div  className="name-student">
                                     <div   id="surname">
-                                        <strong>{all.surname}</strong>
+                                        <strong>Username</strong>
                                         <input 
                                          type="text" 
                                          name="" 
                                          id="input-surname"
-                                        placeholder="Surname"
+                                         placeholder={modalContant?.surname}
+                                         value={usernameStudent}
+                                         onChange={e=>
+                                            setUsernameStudent(e.target.value)
+                                         }
+                                         
                                          />    
                                     </div>
                                     <div id="fullname">
                                         <strong>Full name</strong>
                                         <input 
-                                         placeholder="Fullname"
+                                         placeholder={modalContant?.full_name}
                                          type="text" 
                                          name="" 
-                                         id="input-fullname"/>    
+                                         id="input-fullname"
+                                         value={fullnameStudent }
+                                         onChange={ e=>
+                                                    setFullnameStudent(e.target.value)
+                                 
+                                         }
+                                         />    
                                     </div>
 
                                 </div>
@@ -197,19 +232,35 @@ export default function EditStudent(){
                                          <div id="telefone-student">
                                              <strong>Telefone</strong>
                                           <input 
-                                           placeholder="+7 9 * * * * * * * 5"
+                                           placeholder={modalContant?.number_phone}
                                             type="text" 
                                             name=""
                                             id="input-telefone"
+                                            value={phoneStudent }
+                                            onChange={ e=>
+   
+                                                       
+                                                       setPhoneStudent(e.target.value)
+                                            
+   
+                                            }
                                             />    
                                          </div>
                                     <div id="country-student">
                                         <strong>País</strong>
                                         <input 
-                                         placeholder="Country "
+                                         placeholder={modalContant?.country?.countryStudent}
                                         type="text"
                                         name="" 
                                         id="input-country"
+
+                                        value={countries}
+                                        onChange={ e=>
+
+                                                   setCountryStudent(e.target.value)
+                            
+
+                                        }
                                         />    
                                     </div>
                                 </div>
@@ -218,10 +269,18 @@ export default function EditStudent(){
                                          <div id="room-student" >
                                              <strong>Room</strong>
                                             <input
-                                             placeholder="Rooms for students " 
+                                             placeholder={modalContant?.rooms?.numberofRoom} 
                                              type="text" 
                                              name="" 
-                                             id="input-room"/>    
+                                             id="input-room"
+                                             value={roomStudent }
+                                             onChange={ e=>
+     
+                                                        setRoomStudent(e.target.value)
+                                             
+     
+                                             }
+                                             />    
                                          </div>
                                     <div id="hostel-student">
                                         <strong>Hostel</strong>
@@ -235,10 +294,12 @@ export default function EditStudent(){
                                     
                                 </div>
 
-
+                                {console.log("o valor de id"+ modalContant.id)}
                                 <button 
                                 type="submit"
                                 id="submit-student"
+                                onClick={(e)=>UpdateStudent(e, modalContant.id) }
+
                                 >
                                     SALVAR
                                 </button>
@@ -255,7 +316,7 @@ export default function EditStudent(){
                         
 
                        </Modal>
-                       )) }
+                      
                        </>
                       
                           
