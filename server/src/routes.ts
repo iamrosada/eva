@@ -36,7 +36,7 @@ router.get("/students/rooms", roomController.show)
 /************************************************* */
 const countryController = new CountryController();
 router.post("/students/country",countryController.create)
-router.get("/students/country", countryController.show)
+router.get("/country",countryController.show)
 
 /**************************************************** */
 
