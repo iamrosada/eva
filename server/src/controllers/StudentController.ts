@@ -1,6 +1,7 @@
 import { Response , Request} from "express"
 import { getCustomRepository } from "typeorm";
 import { CountriesRepository } from "../repositories/CountriesRepository";
+import { RoomsRepository } from "../repositories/RoomsRepository";
 import { StudentsRepository } from "../repositories/StudentsRepository";
 
 
@@ -9,9 +10,12 @@ class StudentController {
         //console.log(request.body)
         const {surname , full_name,number_phone, country, rooms} = request.body;
         let countryId;
+        let roomId;
+        
         const studentsRepository = getCustomRepository(StudentsRepository);
         const countryRepository =  getCustomRepository(CountriesRepository)
-
+        const roomsRepository = getCustomRepository(RoomsRepository)
+        
         const stundAlreadyExists = await studentsRepository.findOne({
             number_phone,
         })
@@ -19,11 +23,14 @@ class StudentController {
         const countryUpperCase = country.toUpperCase();
         //console.log(countryUpperCase)
         //process.exit()
-
+        
         const countryAlreadyExists = await countryRepository.findOne({
             countryStudent:countryUpperCase 
         })
-
+         
+        const roomAlreadyExist = await  roomsRepository.findOne({
+            numberofRoom:rooms
+        })
         console.log(countryAlreadyExists)
 
         if(stundAlreadyExists){
@@ -42,14 +49,22 @@ class StudentController {
             countryId = newCountry.id;
         }
         else  countryId = countryAlreadyExists.id;
-   
+        
+        if(!roomAlreadyExist){
+            const newRoom = await roomsRepository.create({
+                numberofRoom:rooms
+            })
+            await roomsRepository.save(newRoom);
+            roomId = newRoom.id;
+        }
+        else roomId = roomAlreadyExist.id;
 
         const student = studentsRepository.create({
             surname, 
             full_name,
             number_phone,
             country:countryId,
-            rooms
+            rooms:roomId,
         })
         
 
@@ -95,7 +110,7 @@ class StudentController {
           
           return response.json({error: 'Not student  found'});
 
-      }
+        }
 
       async delete(request:Request,response:Response):Promise<Response>{
         const studentsRepository = getCustomRepository(StudentsRepository);
