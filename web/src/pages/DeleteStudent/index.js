@@ -11,33 +11,47 @@ import {Link} from  'react-router-dom'
 import {RiDeleteBin6Line} from 'react-icons/ri'
 import Modal from "./ModalConfirm/Modal"
 import api from "../../services/api";
+import {toast} from 'react-toastify'
 export default function DeleteStudent(){
   
+  const [ show,setShow] = useState(false);
   const [allstudent,setAllStudent] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredStudenty, setFilteredStudenty] = useState([]);
-  
+  const [ modalContant,setModalContant] = useState({}); 
   useEffect(() => {
     const fetchData = async () => {
       const result =  await api.get(`/students/`)
  
      setAllStudent(result.data);
-    console.log(result.data)
+     console.log(result.data)
     };
     
     fetchData();
   }, []);
 
+
+  
   useEffect(() => {
    setFilteredStudenty(
      allstudent.filter((student) =>
-       student.surname.toLowerCase().includes(search.toLowerCase())
+       student.surname.toLowerCase().includes(search.toLowerCase())||  student.full_name.toLowerCase().includes(search.toLowerCase())
      )
    );
  }, [search, allstudent]);
 
+         async function DelterStudenty(e, studentId){
+ 
+          //e.preventDefault();
 
-  const [show, setShow] = useState(false);
+            const response = await api.delete(`/students/${studentId}`)
+           
+            if(response.status!==400){
+              toast.error('Estudante deletado com sucesso')
+            }
+    
+        
+        }
 
     return (
                <div id="home-page">
@@ -65,7 +79,7 @@ export default function DeleteStudent(){
                         <div id="option-student-home-page">
                            
                             <ul>
-                            <Link className="select" to="/home">
+                            <Link className="sess" to="/home">
                                Recentes
                             </Link>
                               <Link to="/student">
@@ -87,25 +101,18 @@ export default function DeleteStudent(){
                                    <Link to="/createrooms">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Adicionar Quarto</Link>
 
-                                    <Link to="/deleterooms">
-                                    <MdDelete className="ic-left" color="#cbcbd6" size={25}/>Deletar Quarto </Link>
-
+                                   
                                      <Link to="/allrooms">
                                      <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>listar Quartos</Link>
 
                                    <Link to="/createcountry">
                                    <IoIosAdd className="ic-left" color="#cbcbd6" size={25}/>Criar País</Link>
 
-                                 <Link to="/editercountry">
-                                 <MdCreate className="ic-left"color="#cbcbd6" size={25}/>Editar País</Link>
+                                
 
                                <Link to="/allcountry">
                                <MdFormatAlignLeft className="ic-left" color="#cbcbd6" size={25}/>Listar País</Link>
 
-                            <Link to="/deletercountry">
-                            <MdDelete  className="ic-left" color="#cbcbd6" size={25}/>Deletar País</Link>
-
-                            
                             
                             </ul>
                         </div>
@@ -126,6 +133,12 @@ export default function DeleteStudent(){
                             <div 
                             id="student-table"
                             key={item.id}
+
+                            onClick={() =>{
+                              setShow(true);
+                              
+                               setModalContant(item);
+                             }}
                             >
                             <div id="students-h">
 
@@ -137,7 +150,7 @@ export default function DeleteStudent(){
                                    
                                    </div>
                                    <RiDeleteBin6Line 
-                                    onClick={() => setShow(true)}
+                                    
                                     className="afastar-delete" 
                                     color="red"
                                     size={20}
@@ -176,13 +189,15 @@ export default function DeleteStudent(){
                    <Modal  onClose={() => setShow(false)} show={show}>
                      <form id="modal-deletar">
                        <div id="title-modal">
-                         <h3>Queres Deletar o Estudante ?</h3>
+                         <h3>Queres Deletar o Estudante {modalContant?.surname} ?</h3>
                        </div>
                        <div id="modal-button-confirm">
 
                          <button 
                          id="confirm"
                          type="submit"
+                         onClick={(e)=>DelterStudenty(e, modalContant.id) }
+
                          >
                            DELETAR
                          </button>
