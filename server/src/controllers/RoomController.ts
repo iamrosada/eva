@@ -38,6 +38,19 @@ class RoomController{
         return response.json(allrooms);
 
     }
+    async update(request:Request, response:Response){
+        const roomsRepository = getCustomRepository(RoomsRepository);
+        const allrooms = await roomsRepository.findOne(request.params.id)
+        if (allrooms ) {
+            getCustomRepository(RoomsRepository).merge(allrooms , request.body);
+            const results = await getCustomRepository(RoomsRepository).save(allrooms);
+            return response.json(results);
+          }
+          
+          return response.json({error: 'Not Room found'});
+
+        
+    }
 
 
 }
