@@ -12,7 +12,7 @@
     align-items: center;
     background: #870cf7;
     background: #04D361;
- 
+
 }
 #avatar-home-page{
     display: flex;
@@ -29,7 +29,7 @@
 }
 #das-home-page{
     background:#1e1f54;
-    font-weight:bolder; 
+    font-weight:bolder;
     color:white;
     border-radius: 8px;
     height: 20px;
@@ -69,8 +69,8 @@ section#all-student-home-page{
 }
 #option-student-home-page{
     border-right: 2px solid #d3d3d3;
-    height: 73vh;
-   
+    height: 39vh;
+
 }
 
 #perfil-student-home-page{
@@ -106,7 +106,7 @@ section#all-student-home-page{
     cursor: pointer;
     transition-duration: 3s;
     text-decoration: none;
-    
+
 }
  svg.ic-left{
     margin-right: 10px;
@@ -115,7 +115,7 @@ section#all-student-home-page{
 
 #students{
     display: flex;
-  
+
     align-items: center;
     background: white;
     width: 480px;
@@ -128,7 +128,7 @@ section#all-student-home-page{
     margin-bottom: 10px;
     justify-content: space-between;
     transition-duration: 0.2s;
-   
+
 }
 
 #students:hover{
@@ -153,7 +153,7 @@ section#all-student-home-page{
     display: flex;
     justify-content: center;
     align-items: center;
-   
+
 }
 #univer-home{
     display: flex;
@@ -196,3 +196,24 @@ form#form-input-home-page button:hover{
     background: #1aa056;
 }
 
+button#creater-butt{
+  border:none;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 160px;
+  margin-right: 10px;
+  border-radius: 4px;
+  background: white;
+  height: 35px;
+  transition: background-color 0.2s;
+
+
+}
+button#creater-butt:hover{
+  background: #719ECE;
+  color:white;
+
+}
