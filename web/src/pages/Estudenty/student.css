@@ -1,0 +1,177 @@
+section#section_pay div.content_pay_{
+  height: 100%;
+  display:flex;
+  margin-top: 5vh;
+
+}
+
+.content_pay_{
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+
+
+}
+section#section_pay div#hr{
+  height: 100vh;
+  border:1px solid rgba(0,0,0,.1);
+
+}
+
+section#section_pay div.first_1{
+  display:flex;
+  flex-direction: column;
+}
+section#section_pay div.first_1 div.col_{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-right: 10vh;
+  margin-bottom: 6vh;
+}
+section#section_pay div.first_1 div.col_ img{
+  height: 10vh;
+}
+section#section_pay div.first_1 div.produt_confirm {
+  display: flex;
+
+  flex-wrap: wrap;
+  max-width: 600px;
+
+}
+ div#all{
+  margin-right: 5vh;
+  margin-bottom: 8vh;
+
+}
+div#all h1#span_1{
+  display: flex;
+  flex-direction: column;
+}
+section#section_pay div.first_1 div.produt_confirm div#all h1#span_1 ,span#span_2{
+  font-size: 20px;
+  color: black;
+  margin-left: 1.5vh;
+  font-weight: 0;
+  width: 20vh;
+
+}
+section#section_pay div.first_1 div.produt_confirm div#all img{
+  height:25vh;
+  width: 20vh;
+  border-radius:8%;
+  margin-bottom: 2vh;
+}
+/**********************/
+
+section#section_pay div.second_2{
+  display:flex;
+  flex-direction: column;
+
+
+}
+
+section#section_pay div.second_2 div.guest{
+
+  display:flex;
+  flex-direction: column;
+  background: #cde3f7;
+  border-radius: 5%;
+  margin-left: 2vh;
+  margin-right: 5vh;
+
+  margin-bottom: 3vh;
+
+}
+section#section_pay div.second_2 div.guest_checkout{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4vh;
+  margin-top: 2vh;
+}
+section#section_pay div.second_2 div.guest_checkout div#check{
+  margin-right: 30vh;
+  margin-left: 2vh;
+}
+section#section_pay div.second_2 div.guest_checkout img#edit{
+  background:#FFF;
+  border-radius: 8%;
+  height: 2.5vh;
+  margin-right: 1vh;
+}
+section#section_pay div.second_2 div.email_{
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vh;
+
+}
+section#section_pay div.second_2 div.email_ span{
+  margin-left: 2vh;
+}
+section#section_pay div.second_2 div#check-1{
+
+  font-size: 12px;
+  display:flex;
+
+}
+section#section_pay div.second_2 div#check-1 h1{
+  margin-right:20vh;
+}
+section#section_pay div.second_2  img#ed{
+  margin-left: 12vh;
+  background: #FFF;
+}
+section#section_pay div.feito{
+
+  display: flex;
+  justify-content: space-between;
+
+  margin-left: 3vh;
+  width: 58vh;
+}
+section#section_pay  div.feito div.taxas span{
+  margin-bottom: 3vh;
+
+}
+section#section_pay  div.feito div.taxas ,div.free span{
+  margin-top: 2vh;
+  display:flex;
+  flex-direction: column;
+  margin-bottom: 3vh;
+
+}
+section#section_pay  div.feito  span.aument{
+  font-size: 3vh;
+
+  color:#000;
+font-weight: 700;
+}
+
+button#btn-0{
+  display: flex;
+
+  margin-bottom: 40px;
+  display: flex;
+  width: 60vh;
+  height: 6.9vh;
+  background: #0fb83f;
+  color: #FFF;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 13px 25px;
+  border: none;
+  justify-content: center;
+  margin-left: 3vh;
+
+}
+button#btn-0:hover{
+
+  background: #07ca3e;
+  cursor: pointer;
+}
