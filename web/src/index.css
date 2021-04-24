@@ -19,8 +19,8 @@ code {
    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-   
-    
+
+
  }
  body, input, button{
    font:14px Roboto, sans-serif;
@@ -43,9 +43,9 @@ code {
   --color-border-top: #ebecef;
   --color-text:#66676c;
   --color-input-desable: #ebecef;
-  --color-letter-desktop:#838488;  
+  --color-letter-desktop:#838488;
   --color-sinza:#808080;
-  
+
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -75,7 +75,7 @@ code {
     --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
     --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
 
-   
+
 
   }
  button{
