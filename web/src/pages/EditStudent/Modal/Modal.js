@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
-import { CSSTransition } from "react-transition-group";
-import "./Modal.css";
+import React, { useEffect } from 'react';
+import ReactDOM from 'react-dom';
+import { CSSTransition } from 'react-transition-group';
+import './Modal.css';
 
 const Modal = props => {
   const closeOnEscapeKeyDown = e => {
@@ -11,9 +11,9 @@ const Modal = props => {
   };
 
   useEffect(() => {
-    document.body.addEventListener("keydown", closeOnEscapeKeyDown);
+    document.body.addEventListener('keydown', closeOnEscapeKeyDown);
     return function cleanup() {
-      document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
+      document.body.removeEventListener('keydown', closeOnEscapeKeyDown);
     };
   }, []);
 
@@ -23,15 +23,17 @@ const Modal = props => {
       unmountOnExit
       timeout={{ enter: 0, exit: 300 }}
     >
-      <div className="modal" onClick={props.onClose}>
-        <div className="modal-content" onClick={e => e.stopPropagation()}>
-         
-          <div >{props.children}</div>
-         
+      <div aria-hidden className="modal" onClick={props.onClose}>
+        <div
+          aria-hidden
+          className="modal-content"
+          onClick={e => e.stopPropagation()}
+        >
+          <div>{props.children}</div>
         </div>
       </div>
     </CSSTransition>,
-    document.getElementById("root")
+    document.getElementById('root')
   );
 };
 
