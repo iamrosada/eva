@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+#home-page{
+   display:flex;
+   flex-direction: column;
+
+}
+#header-home-page{
+    padding: 10px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background: #870cf7;
+    background: #04D361;
+
+}
+#avatar-home-page{
+    display: flex;
+    flex-direction: column;
+}
+.avatar-name-univer{
+    font-weight: bold;
+    margin-left: 10px;
+}
+#icon-univer-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#das-home-page{
+    background:#1e1f54;
+    font-weight:bolder;
+    color:white;
+    border-radius: 8px;
+    height: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-family: Roboto;
+
+}
+
+#input-home-page{
+    border:none;
+    height: 30px;
+    width: 400px;
+    border-radius:9px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 12px;
+    letter-spacing: -.03em;
+    font-weight: 400;
+}
+
+#user-page{
+    font-weight: bolder;
+    font-size: 12px;
+    margin: 3px;
+}
