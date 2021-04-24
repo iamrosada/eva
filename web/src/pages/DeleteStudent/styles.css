@@ -13,7 +13,7 @@
     align-items: center;
     background: #870cf7;
     background: #04D361;
- 
+
 }
 #avatar-home-page{
     display: flex;
@@ -30,7 +30,7 @@
 }
 #das-home-page{
     background:#1e1f54;
-    font-weight:bolder; 
+    font-weight:bolder;
     color:white;
     border-radius: 8px;
     height: 20px;
@@ -71,7 +71,7 @@ section#all-student-home-page{
 #option-student-home-page{
     border-right: 2px solid #d3d3d3;
     height: 100vh;
-   
+
 }
 
 #perfil-student-home-page{
@@ -106,7 +106,7 @@ section#all-student-home-page{
     cursor: pointer;
     transition-duration: 3s;
     text-decoration: none;
-    
+
 }
  svg.ic-left{
     margin-right: 10px;
@@ -120,16 +120,16 @@ section#all-student-home-page{
     font-weight: 700;
     justify-content: space-between;
     width: 580px;
-   
+
 }
-div#student-table{
+div#student-table-delete{
     width: 580px;
     height: 100px;
     transition-duration: 0.2s;
     letter-spacing: -.03em;
     font-weight: 700;
 }
-div#student-table:hover{
+div#student-table-delete:hover{
     transform:translateX(10px);
 }
 #borda{
@@ -151,7 +151,7 @@ div#student-table:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-   
+
 }
 #univer-home{
     display: flex;
@@ -194,11 +194,11 @@ form#form-input-home-page button:hover{
     background: #1aa056;
 }
 
-div#student-table{
+div#student-table-delete{
     display: flex;
     flex-direction: column;
     background: white;
-    
+
     border-radius: 4px;
     font-size: 12px;
     font-family: Roboto;
@@ -207,8 +207,8 @@ div#student-table{
 }
 th, td {
     padding: 5px;
-    text-align: left; 
-    font-size: 12px;   
+    text-align: left;
+    font-size: 12px;
     font-family: Roboto;
   }
   td{
