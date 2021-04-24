@@ -1,7 +1,10 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn } from "typeorm";
 
 import { v4 as uuid} from "uuid"
+import { CollegeStudenty } from "./College";
 import { Country } from "./Country";
+import { HostelStudenty } from "./Hostel";
+import { ImageStudenty } from "./Post";
 import { Room } from "./Room";
 
 @Entity("students")
@@ -20,6 +23,16 @@ import { Room } from "./Room";
 
      @ManyToOne(type=>Room, students=>Student,{eager:true})
      rooms: Room[];
+
+     @ManyToOne(type=>CollegeStudenty, students=>Student,{eager:true})
+     college:CollegeStudenty[];
+
+     @ManyToOne(type=>HostelStudenty, students=>Student,{eager:true})
+     hostel:HostelStudenty[];
+
+     @ManyToOne(type=>ImageStudenty, students=>Student,{eager:true})
+     imagepost:ImageStudenty; 
+     
      @Column()
      number_phone:string;
      
