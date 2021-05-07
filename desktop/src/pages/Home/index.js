@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './styles.css';
+import './Navbar.css';
 import { FiChevronRight } from 'react-icons/fi';
 import {
   MdSchool,
@@ -15,8 +16,6 @@ import * as AiIcons from 'react-icons/ai';
 import vsuet from '../../images/vsuet.png';
 import api from '../../services/api';
 
-/* import Navlefth from '../../components/NavLefth/Navlefth'; */
-
 export default function Home() {
   const [surname, setSurname] = useState('');
   const [fullname, setFullname] = useState('');
@@ -25,43 +24,23 @@ export default function Home() {
   const [rooms, setRooms] = useState('');
   const [colleges, setCollege] = useState('');
   const [hostels, setHostel] = useState('');
-  /*  const [file, setFile] = useState(''); */
+
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => setSidebar(!sidebar);
   const [file, setPicture] = useState('');
-  // const [, /* imgData */ setImgData] = useState(null);
+
   const onChangePicture = e => {
     if (e.target.files[0]) {
-      console.log('picture: ', e.target.files[0]);
+      /*  console.log('picture: ', e.target.files[0]); */
       setPicture(e.target.files[0]);
-      /*  const reader = new FileReader();
-      reader.addEventListener('load', () => {
-        console.log('testing', reader.result);
-        setImgData(reader.result);
-      });
-      reader.readAsDataURL(e.target.files[0]); */
     }
   };
   async function CreateNewStudent(e) {
     e.preventDefault();
-    /*  const { name, size } = picture; */
-    console.log('ori', file);
 
-    /*   const data = {
-      surname,
-      full_name: fullname,
-      number_phone: phone,
-      country,
-      rooms,
-      college: colleges,
-      hostel: hostels,
-       file: {
-        originalname: name,
-        size,
-      },
-      //file: picture,
-    }; */
+    /* console.log('ori', file); */
+
     const data = new FormData();
 
     data.append('surname', surname);
@@ -72,7 +51,7 @@ export default function Home() {
     data.append('college', colleges);
     data.append('hostel', hostels);
     data.append('file', file);
-    console.log(data);
+    /* console.log(data); */
     if (
       surname !== '' &&
       fullname !== '' &&
@@ -80,8 +59,8 @@ export default function Home() {
       country !== '' &&
       rooms !== '' &&
       colleges !== '' &&
-      hostels !== ''
-      /*  file !== '' */
+      hostels !== '' &&
+      file !== ''
     ) {
       const response = await api.post('/students', data);
 
@@ -201,7 +180,7 @@ export default function Home() {
                   }}
                   encType="multipart/form-data"
                 >
-                  <AiIcons.AiOutlineClose /* onClick={showSidebar} */ />
+                  <AiIcons.AiOutlineClose />
                   <div className="name-student">
                     <div id="surname">
                       <strong>Surname</strong>
@@ -296,13 +275,7 @@ export default function Home() {
                         name="arquivo"
                         id="arquivo"
                         encType="multipart/form-data"
-                        /* value={file} */
-                        onChange={
-                          onChangePicture /*  e.preventDefault();
-                          console.log('TESTS', e.target.files[0]); */
-
-                          /* setFile(e.target.files[0]); */
-                        }
+                        onChange={onChangePicture}
                       />
                     </div>
                   </div>
