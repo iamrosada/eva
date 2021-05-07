@@ -1,0 +1,258 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+#home-page{
+   display:flex;
+   flex-direction: column;
+
+}
+#header-home-page{
+    padding: 10px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background: #870cf7;
+    background: #04D361;
+
+}
+#avatar-home-page{
+    display: flex;
+    flex-direction: column;
+}
+.avatar-name-univer{
+    font-weight: bold;
+    margin-left: 10px;
+}
+#icon-univer-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#das-home-page{
+    background:#1e1f54;
+    font-weight:bolder;
+    color:white;
+    border-radius: 8px;
+    height: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-family: Roboto;
+
+}
+
+#input-home-page{
+    border:none;
+    height: 30px;
+    width: 400px;
+    border-radius:9px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 12px;
+    letter-spacing: -.03em;
+    font-weight: 400;
+}
+
+#user-page{
+    font-weight: bolder;
+    font-size: 12px;
+    margin: 3px;
+}
+section#all-student-home-page{
+    display: flex;
+    flex-direction: column;
+    max-width: 1199px;
+    margin-top: 10px;
+    padding: 0 30px;
+
+}
+
+#perfil-student-home-page{
+    display:flex;
+    justify-content:space-between;
+}
+#perfil-student-home-page li,a:hover{
+   background: #719ECE;
+   color:white;
+
+}
+#perfil-student-home-page li.select,a{
+    background: #719ECE;
+    color:white;
+}
+#perfil-student-home-page li,a{
+    list-style:none;
+    margin-bottom:10px;
+    margin-right: 10px;
+    background: white;
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#333;
+    font-size: 13px;
+    font-family: Roboto;
+    letter-spacing: -.03em;
+    font-weight: 500;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition-duration: 3s;
+    text-decoration: none;
+
+}
+ svg.ic-left{
+    margin-right: 10px;
+    display: flex;
+}
+
+#students-h{
+    display: flex;
+    align-items: center;
+    letter-spacing: -.03em;
+    font-weight: 700;
+    justify-content: space-between;
+    max-width: 580px;
+    width: 100%;
+
+}
+
+
+#borda{
+    border: 2px solid rgb(102, 197, 98);
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    display: flex;
+    color:rgb(102, 197, 98);
+    justify-content: center;
+    align-items: center;
+}
+
+.sp{
+    color:#333;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#univer-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form#form-input-home-page{
+    max-width: 900px;
+    display:flex;
+}
+#for-search{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+     margin: 0 auto;
+}
+form#form-input-home-page input{
+    height: 40px;
+    padding: 0 24px;
+    border:0;
+    border-radius: 5px 0 0 5px;
+    width: 400px;
+    margin-bottom:18px ;
+}
+form#form-input-home-page input::placeholder{
+    color:#a8a8b3;
+}
+form#form-input-home-page button{
+    width: 80px;
+    height: 40px;
+    background: #04D361;
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    color:white;
+    font-weight: bold;
+    transition: background-color 0.2s;
+
+}
+form#form-input-home-page button:hover{
+    background: #1aa056;
+}
+
+div#student-table{
+    display: flex;
+    flex-direction: column;
+
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+    font-size: 12px;
+    font-family: Roboto;
+  }
+  td{
+    color:#cbcbd6
+  }
+#al{
+  display: flex;
+  max-width: 688px;
+  width: 100%;
+  height: 100%;
+  max-height: 140px;
+  transition-duration: 0.2s;
+  letter-spacing: -.03em;
+  font-weight: 700;
+  background: white;
+  text-transform:uppercase;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: Roboto;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+
+}
+#al:hover{
+  transform:translateX(10px);
+}
+div#avtar-s{
+  max-height:350px;
+  max-width: 280px;
+
+}
+img#avatar-stu
+{
+  max-height:350px;
+  height: 100%;
+  width: 100%;
+  max-width: 280px;
+  border-radius:8%;
+  margin-bottom: 2vh;
+  padding: 5px;
+  margin-top: 15px;
+ /*  object-fit: none; */
+}
+button#creater-butt{
+  border:none;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 160px;
+  margin-right: 10px;
+  border-radius: 4px;
+  background: white;
+  height: 35px;
+  transition: background-color 0.2s;
+
+
+}
+button#creater-butt:hover{
+  background: #719ECE;
+  color:white;
+
+}
