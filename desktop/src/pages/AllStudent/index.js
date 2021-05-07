@@ -11,14 +11,12 @@ import {
 import * as AiIcons from 'react-icons/ai';
 import { IoIosAdd } from 'react-icons/io';
 import { IconContext } from 'react-icons';
-import '../../components/Navbar/Navbar.css';
+import './Navbar.css';
 
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import vsuet from '../../images/vsuet.png';
 import api from '../../services/api';
-
-/* import Navlefth from '../../components/NavLefth/Navlefth'; */
 
 export default function AllStudent() {
   const [surname, setSurname] = useState('');
@@ -28,26 +26,33 @@ export default function AllStudent() {
   const [rooms, setRooms] = useState('');
   const [colleges, setCollege] = useState('');
   const [hostels, setHostel] = useState('');
-  const [file, setFile] = useState('');
-  const [sidebar, setSidebar] = useState(false);
 
+  const [sidebar, setSidebar] = useState(false);
+  const [file, setPicture] = useState('');
   const showSidebar = () => setSidebar(!sidebar);
 
+  const onChangePicture = e => {
+    if (e.target.files[0]) {
+      console.log('picture: ', e.target.files[0]);
+      setPicture(e.target.files[0]);
+    }
+  };
   async function CreateNewStudent(e) {
     e.preventDefault();
-    const data = {
-      surname,
-      full_name: fullname,
-      number_phone: phone,
-      country,
-      rooms,
-      college: colleges,
-      hostel: hostels,
-      file,
-    };
 
+    console.log('ori', file);
+
+    const data = new FormData();
+
+    data.append('surname', surname);
+    data.append('full_name', fullname);
+    data.append('number_phone', phone);
+    data.append('country', country);
+    data.append('rooms', rooms);
+    data.append('college', colleges);
+    data.append('hostel', hostels);
+    data.append('file', file);
     console.log(data);
-
     if (
       surname !== '' &&
       fullname !== '' &&
@@ -137,7 +142,7 @@ export default function AllStudent() {
               <ul aria-hidden className="nav-menu-items">
                 <div id="for-create-student">
                   <form id="form-student">
-                    <AiIcons.AiOutlineClose /* onClick={showSidebar} */ />
+                    <AiIcons.AiOutlineClose />
                     <div className="name-student">
                       <div id="surname">
                         <strong>Surname</strong>
@@ -231,11 +236,7 @@ export default function AllStudent() {
                           type="file"
                           name="arquivo"
                           id="arquivo"
-                          value={file}
-                          onChange={e =>
-                            /*  console.log(e.target.files[0]); */
-                            setFile(e.target.files[0])
-                          }
+                          onChange={onChangePicture}
                         />
                       </div>
                     </div>
@@ -262,6 +263,10 @@ export default function AllStudent() {
               <button type="submit">Search</button>
             </form>
 
+            {/*  <Virtuoso
+              style={{ height: '400px' }}
+
+            /> */}
             {filteredStudenty.map(item => (
               <div id="al" key={item.id}>
                 <div id="avatar-s">
