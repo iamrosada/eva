@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import './styles.css';
 import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 import loginIm from '../../images/login.png';
 import api from '../../services/api';
+// import history from '../../history';
 
 export default function SingIn() {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -15,7 +18,8 @@ export default function SingIn() {
       const response = await api.post('/session', data);
 
       if (response.status !== 400) {
-        window.location.href = '/home';
+        // window.location.href = '/home';
+        history.push('/home');
       } else {
         toast.error('Error ao fazer o login ');
       }
@@ -24,10 +28,10 @@ export default function SingIn() {
     }
   }
 
-  function goTocadastro() {
-    window.location.href = '/cadastrar';
-  }
-
+  const goTocadastro = () => {
+    // window.location.href = '/cadastrar';
+    history.push('/cadastrar');
+  };
   return (
     <div id="section">
       <div id="tm-img">
@@ -62,11 +66,17 @@ export default function SingIn() {
             type="submit"
             onClick={handleSubmitLogin}
           >
-            Entrar
+            {handleSubmitLogin ? 'Entrar' : 'waiting'} {/* Entrar */}
           </button>
         </div>
 
-        <button type="submit" className="cadastrar tbn" onClick={goTocadastro}>
+        <button
+          type="submit"
+          className="cadastrar tbn"
+          onClick={e => {
+            goTocadastro(e);
+          }}
+        >
           Ainda não tem conta? Cadastre-se.
         </button>
       </div>
