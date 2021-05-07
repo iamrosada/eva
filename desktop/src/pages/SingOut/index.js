@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './styles.css';
 import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 import out from '../../images/out.png';
-
 import api from '../../services/api';
+/* import history from '../../history'; */
 
 export default function SingOut() {
+  const history = useHistory();
+
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -17,7 +20,8 @@ export default function SingOut() {
       const response = await api.post('/manager', data);
 
       if (response.status !== 400) {
-        window.location.href = '/home';
+        // window.location.href = '/home';
+        history.push('/home');
       } else {
         toast.error('Error ao cadastar o usuario!');
       }
@@ -25,8 +29,10 @@ export default function SingOut() {
       toast.error('Error preencha os campos !');
     }
   }
+
   function goTologin() {
-    window.location.href = '/';
+    // window.location.href = '/';
+    history.push('/');
   }
   return (
     <div id="section">
