@@ -5,7 +5,7 @@ import { MdCreate, MdFormatAlignLeft, MdDelete } from 'react-icons/md';
 import * as AiIcons from 'react-icons/ai';
 import { IoIosAdd } from 'react-icons/io';
 import { IconContext } from 'react-icons';
-import '../../components/Navbar/Navbar.css';
+import './Navbar.css';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import vsuet from '../../images/vsuet.png';
@@ -104,7 +104,7 @@ export default function CreateStudente() {
               <ul aria-hidden className="nav-menu-items">
                 <div id="for-create-student">
                   <form id="form-student">
-                    <AiIcons.AiOutlineClose /* onClick={showSidebar} */ />
+                    <AiIcons.AiOutlineClose />
                     <div className="name-student">
                       <div id="surname">
                         <strong>Surname</strong>
@@ -200,7 +200,7 @@ export default function CreateStudente() {
                           id="arquivo"
                           value={file}
                           onChange={e => {
-                            console.log(e.target.files[0]);
+                            /* console.log(e.target.files[0]); */
                             setFile(e.target.files[0]);
                           }}
                         />
