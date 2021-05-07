@@ -1,0 +1,88 @@
+
+#option-student-home-page{
+  border-right: 2px solid #d3d3d3;
+  height: 68vh;
+
+}
+
+#perfil-student-home-page{
+  display:flex;
+  justify-content:space-between;
+}
+#perfil-student-home-page li,a:hover{
+ background: #719ECE;
+ color:white;
+
+}
+#perfil-student-home-page li.select,a{
+  background: #719ECE;
+  color:white;
+}
+
+#perfil-student-home-page li,a{
+  list-style:none;
+  /* margin-bottom:10px;
+  margin-right: 10px; */
+  background: white;
+  padding: 5px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color:#333;
+  font-size: 13px;
+  font-family: Roboto;
+  letter-spacing: -.03em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition-duration: 3s;
+  text-decoration: none;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 4px;
+  background: white;
+
+}
+svg.ic-left{
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#creat-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: white;
+  color:#333;
+  font-size: 13px;
+  font-family: Roboto;
+  letter-spacing: -.03em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition-duration: 3s;
+  text-decoration: none;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 4px;
+  background: white;
+  margin-right: 10px;
+
+}
+
+
+#creat-button:hover{
+  background: #719ECE;
+  color:white;
+
+ }
+
+
+
