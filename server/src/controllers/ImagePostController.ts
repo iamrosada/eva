@@ -7,7 +7,8 @@ import {ImagePostRepository } from '../repositories/PostImageRepository'
 class PostImage{
 
         async create( request:Request, response:Response){
-            const {originalname:name, size, filename:key} = request.file;
+            
+            const {originalname:name, size, /* filename: */key,location:url=""} = request.file;
             
             const imagemPostRepository = getCustomRepository(ImagePostRepository);
           
@@ -15,10 +16,9 @@ class PostImage{
                 name,
                 size,
                 key,
-                url:"",
-                
+                url
             })
-        
+           
             await imagemPostRepository.save(imagemStudenty)
     
             return response.send(imagemStudenty);
