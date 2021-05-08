@@ -8,9 +8,9 @@ import { CollegeRepository } from "../repositories/CollegesRepository";
 import { ImagePostRepository } from "../repositories/PostImageRepository";
 class StudentController {
     async create(request:Request , response:Response){
-       
+       console.log('img',request.file)
         const {surname , full_name,number_phone, country, rooms,hostel,college } = request.body;
-        const {originalname:name, size, filename:key} = request.file;
+        const {originalname:name, size, /* filename: */key, location:url=""} = request.file;
        /*  console.log("aqui do file",request.file)
         process.exit(); */
         let countryId;
@@ -101,7 +101,7 @@ class StudentController {
                 name,
                 size,
                 key,
-                url:"",
+                url,
                 
             })
 
