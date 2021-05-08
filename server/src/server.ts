@@ -1,3 +1,4 @@
+import dotenv from 'dotenv'
 import "reflect-metadata"
 import express from "express";
 import cors from "cors"
@@ -19,7 +20,8 @@ app.use(
   express.static(path.resolve(__dirname,"..", "tmp", "uploads"))
 );
 app.use(router)
+dotenv.config();
 app.listen(3333,()=>{
-    console.log("server is runing");
+    console.log("🏃 server is runing");
 });
 
