@@ -1,8 +1,8 @@
 {
-  "name": "eva",
-  "version": "0.1.0",
+  "name": "Eva",
+  "version": "1.1.0",
   "private": true,
-  "description": "this app i did for my university , for help them in something",
+  "description": "Я ЛУИШ РОЗАДА сделал это приложение, чтобы помочь в административной работе ВГУИТ.",
   "author": "luis de Água Rosada",
   "build": {
     "appId": "myledgerapp",
