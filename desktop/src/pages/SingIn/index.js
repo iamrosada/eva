@@ -21,10 +21,10 @@ export default function SingIn() {
         // window.location.href = '/home';
         history.push('/home');
       } else {
-        toast.error('Error ao fazer o login ');
+        toast.error('Ошибка при входе в систему');
       }
     } else {
-      toast.error('Error preencha os campos !');
+      toast.error('Ошибка заполнения полей !');
     }
   }
 
@@ -40,13 +40,15 @@ export default function SingIn() {
 
       <div id="tel-login">
         <div id="tel-login-container">
-          <h2>Login</h2>
-          <span>Digite seus dados para entrar e acessar o conteúdo.</span>
+          <h2>Входить</h2>
+          <span>
+            Введите свои данные для входа в систему и доступа к системе
+          </span>
 
           <input
             className="input"
             type="text"
-            placeholder="E-mail"
+            placeholder="Электронная почта"
             name="email"
             autoComplete="email"
             value={email}
@@ -55,7 +57,7 @@ export default function SingIn() {
           <input
             className="input"
             type="password"
-            placeholder="Senha"
+            placeholder="Пароль"
             name="senha"
             required
             value={senha}
@@ -66,7 +68,7 @@ export default function SingIn() {
             type="submit"
             onClick={handleSubmitLogin}
           >
-            {handleSubmitLogin ? 'Entrar' : 'waiting'} {/* Entrar */}
+            {handleSubmitLogin ? 'Входить' : 'ожидающий'} {/* Entrar */}
           </button>
         </div>
 
@@ -77,7 +79,7 @@ export default function SingIn() {
             goTocadastro(e);
           }}
         >
-          Ainda não tem conta? Cadastre-se.
+          Еще нет учетной записи? Регистр
         </button>
       </div>
     </div>
