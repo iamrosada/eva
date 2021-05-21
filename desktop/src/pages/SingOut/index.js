@@ -38,14 +38,16 @@ export default function SingOut() {
     <div id="section">
       <div id="tel-sing">
         <div id="tel-sing-container">
-          <h2>Cadastro.</h2>
-          <span>Digite seus dados para entrar e acessar o conteúdo.</span>
+          <h2>Регистр</h2>
+          <span>
+            Введите свои данные для входа в систему и доступа к системе
+          </span>
 
           <input
             name="nome"
             className="input"
             type="text"
-            placeholder="Nome"
+            placeholder="Имя"
             value={nome}
             onChange={e => setNome(e.target.value)}
           />
@@ -54,7 +56,7 @@ export default function SingOut() {
             className="input"
             autoComplete="email"
             type="text"
-            placeholder="E-mail"
+            placeholder="Электронная почта"
             value={email}
             onChange={e => setEmail(e.target.value)}
           />
@@ -64,7 +66,7 @@ export default function SingOut() {
             type="password"
             required
             autoComplete="senha"
-            placeholder="Senha"
+            placeholder="Пароль"
             value={senha}
             onChange={e => setSenha(e.target.value)}
           />
@@ -74,12 +76,12 @@ export default function SingOut() {
             type="submit"
             onClick={handleSubmit}
           >
-            Cadastrar
+            Зарегистрироваться
           </button>
         </div>
 
         <button type="submit" className="cadastrar tbn" onClick={goTologin}>
-          Já tem uma conta? Faça login.
+          Уже есть аккаунт? Войти
         </button>
       </div>
 
