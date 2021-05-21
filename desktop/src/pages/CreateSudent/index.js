@@ -37,7 +37,7 @@ export default function CreateStudente() {
       file,
     };
 
-    console.log(data);
+    /*  console.log(data); */
 
     if (
       surname !== '' &&
@@ -68,16 +68,16 @@ export default function CreateStudente() {
           <div id="option-student-home-page">
             <ul>
               <Link className="sess" to="/home">
-                Recentes
+                Недавний
               </Link>
-              <button type="submit" onClick={showSidebar}>
+              <button id="createrbut" type="button" onClick={showSidebar}>
                 <IoIosAdd className="ic-left" color="#cbcbd6" size={25} />
-                Adicionar Estudante
+                Добавить студента
               </button>
 
               <Link to="/editstudent">
                 <MdCreate className="ic-left" color="#cbcbd6" size={25} />
-                Editar Estudante
+                Редактировать студента
               </Link>
 
               <Link to="/allstudent">
@@ -86,12 +86,12 @@ export default function CreateStudente() {
                   color="#cbcbd6"
                   size={25}
                 />{' '}
-                listar Estudante
+                Список Студент
               </Link>
 
               <Link to="/deletstudent">
                 <MdDelete className="ic-left" color="#cbcbd6" size={25} />{' '}
-                Deletar Estudante
+                Удалить учащегося
               </Link>
             </ul>
           </div>
@@ -107,20 +107,20 @@ export default function CreateStudente() {
                     <AiIcons.AiOutlineClose />
                     <div className="name-student">
                       <div id="surname">
-                        <strong>Surname</strong>
+                        <strong>Фамилия</strong>
                         <input
                           type="text"
-                          name="surname"
+                          name="Фамилия"
                           id="input-surname"
-                          placeholder="Surname"
+                          placeholder="Фамилия"
                           value={surname}
                           onChange={e => setSurname(e.target.value)}
                         />
                       </div>
                       <div id="fullname">
-                        <strong>Full name</strong>
+                        <strong>ИО</strong>
                         <input
-                          placeholder="Fullname"
+                          placeholder="ИО"
                           type="text"
                           name="fullname"
                           id="input-fullname"
@@ -132,7 +132,7 @@ export default function CreateStudente() {
 
                     <div className="name-student">
                       <div id="telefone-student">
-                        <strong>Telefone</strong>
+                        <strong>Телефон</strong>
                         <input
                           placeholder="+7 9 * * * * * * * 5"
                           type="text"
@@ -143,9 +143,9 @@ export default function CreateStudente() {
                         />
                       </div>
                       <div id="country-student">
-                        <strong>País</strong>
+                        <strong>Страна</strong>
                         <input
-                          placeholder="Country "
+                          placeholder="при.,Ангола"
                           type="text"
                           name="country"
                           id="input-country"
@@ -157,9 +157,9 @@ export default function CreateStudente() {
 
                     <div className="name-student">
                       <div id="room-student">
-                        <strong>Room</strong>
+                        <strong>Комната</strong>
                         <input
-                          placeholder="Rooms for students "
+                          placeholder="Комнаты, пример 410"
                           type="text"
                           name=""
                           id="input-room"
@@ -168,39 +168,49 @@ export default function CreateStudente() {
                         />
                       </div>
                       <div id="hostel-student">
-                        <strong>Hostel</strong>
-                        <input
-                          placeholder="hostel for students "
-                          type="text"
-                          name=""
+                        <strong>Общежитие</strong>
+                        <select
                           id="input-hostel"
                           value={hostels}
                           onChange={e => setHostel(e.target.value)}
-                        />
+                        >
+                          <option value="2">Общежитие 2 ВГУИТ</option>
+                          <option value="3">Общежитие 3 ВГУИТ</option>
+                          <option value="4">Общежитие 4 ВГУИТ</option>
+                          <option value="5">Общежитие 5 ВГУИТ</option>
+                        </select>
                       </div>
                     </div>
                     <div className="name-student">
                       <div id="room-student">
-                        <strong>College</strong>
-                        <input
-                          placeholder="College for students "
-                          type="text"
-                          name=""
-                          id="input-room"
+                        <strong>Факультет</strong>
+                        <select
+                          id="select"
                           value={colleges}
                           onChange={e => setCollege(e.target.value)}
-                        />
+                        >
+                          <option value="УИТС">УИТС</option>
+                          <option value="БО">БО</option>
+                          <option value="ПКВК">ПКВК</option>
+                          <option value="ПМА">ПМА</option>
+                          <option value="СПО">СПО</option>
+                          <option value="ТЕСТ">ТЕСТ</option>
+                          <option value="ТЕХНОЛОГИЧЕСКИЙ">
+                            ТЕХНОЛОГИЧЕСКИЙ
+                          </option>
+                          <option value="ЭИУ">ЭИУ</option>
+                          <option value="ЭХТ">ЭХТ</option>
+                        </select>
                       </div>
                       <div id="hostel-student">
-                        <strong>Photo of Student</strong>
+                        <strong>Фото студента</strong>
                         <input
-                          placeholder="Photo of Student"
+                          placeholder="Фото студента"
                           type="file"
                           name="arquivo"
                           id="arquivo"
                           value={file}
                           onChange={e => {
-                            /* console.log(e.target.files[0]); */
                             setFile(e.target.files[0]);
                           }}
                         />
@@ -212,7 +222,7 @@ export default function CreateStudente() {
                       id="submit-student"
                       onClick={CreateNewStudent}
                     >
-                      SALVAR
+                      СОХРАНИТЬ
                     </button>
                   </form>
                 </div>
