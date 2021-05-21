@@ -70,7 +70,7 @@ section#all-student-home-page{
 }
 #option-student-home-page{
     border-right: 2px solid #d3d3d3;
-   
+
 
 }
 
@@ -214,6 +214,27 @@ button#creater-butt{
 
 }
 button#creater-butt:hover{
+  background: #719ECE;
+  color:white;
+
+}
+button#createrbut{
+  border:none;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 95%;
+  margin-right: 10px;
+  border-radius: 4px;
+  background: white;
+  height: 35px;
+  transition: background-color 0.2s;
+
+
+}
+button#createrbut:hover{
   background: #719ECE;
   color:white;
 
