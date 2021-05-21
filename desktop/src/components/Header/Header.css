@@ -16,8 +16,8 @@
     top:0;
     left:0;
     width:100%; */
-   
-    
+
+
 }
 #avatar-home-page{
     display: flex;
@@ -63,4 +63,19 @@
     font-weight: bolder;
     font-size: 12px;
     margin: 3px;
+}
+#vsuet-name{
+  color:white;
+  font-size:15px;
+  font-weight: bold;
+  font-weight: 800;
+  font-family: Roboto;
+}
+.tbnn{
+  border: none;
+  margin-left: 10px;
+  border-radius: 4px;
+  padding: 3px;
+  font-size: 11px;
+  background: white;
 }
