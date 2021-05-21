@@ -235,14 +235,14 @@ img#avatar-stu
   margin-top: 15px;
  /*  object-fit: none; */
 }
-button#creater-butt{
+button#createrbut{
   border:none;
   font-size: 13px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
-  width: 160px;
+  width: 95%;
   margin-right: 10px;
   border-radius: 4px;
   background: white;
@@ -251,7 +251,7 @@ button#creater-butt{
 
 
 }
-button#creater-butt:hover{
+button#createrbut:hover{
   background: #719ECE;
   color:white;
 
