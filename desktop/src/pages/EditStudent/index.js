@@ -17,7 +17,6 @@ import vsuet from '../../images/vsuet.png';
 import Modal from './Modal/Modal';
 import api from '../../services/api';
 import './Navbar.css';
-/* import '../../components/Navbar/Navbar.css'; */
 
 export default function EditStudent() {
   const [show, setShow] = useState(false);
@@ -38,9 +37,8 @@ export default function EditStudent() {
   const [phone, setPhone] = useState('');
   const [country, setCountry] = useState('');
   const [rooms, setRooms] = useState('');
-  const [colleges, setCollege] = useState('');
-  const [hostels, setHostel] = useState('');
-
+  const [colleges, setCollege] = useState('УИТС');
+  const [hostels, setHostel] = useState('2');
   const [sidebar, setSidebar] = useState(false);
   const [file, setPicture] = useState('');
   const showSidebar = () => setSidebar(!sidebar);
@@ -60,7 +58,9 @@ export default function EditStudent() {
       allstudent.filter(
         student =>
           student.surname.toLowerCase().includes(search.toLowerCase()) ||
-          student.full_name.toLowerCase().includes(search.toLowerCase())
+          student.full_name.toLowerCase().includes(search.toLowerCase()) ||
+          student.country.countryStudent.includes(search) ||
+          student.number_phone.toLowerCase().includes(search.toLowerCase())
       )
     );
   }, [search, allstudent]);
@@ -85,7 +85,7 @@ export default function EditStudent() {
     data.append('college', college);
     data.append('hostel', hostel);
     data.append('file', file);
-    /* console.log(data); */
+
     if (
       usernameStudent !== '' &&
       fullnameStudent !== '' &&
@@ -94,10 +94,10 @@ export default function EditStudent() {
       const response = await api.put(`/students/${studentId}`, data);
 
       if (response.status !== 400) {
-        toast.success('Estudante update com sucesso');
+        toast.success('Студент успешно обновлен');
       }
     } else {
-      toast.error('Error preencha os campos !');
+      toast.error('Ошибка заполнения полей!');
     }
   }
 
@@ -116,7 +116,7 @@ export default function EditStudent() {
     data.append('college', colleges);
     data.append('hostel', hostels);
     data.append('file', file);
-    console.log(data);
+    /*  console.log(data); */
     if (
       surname !== '' &&
       fullname !== '' &&
@@ -130,12 +130,12 @@ export default function EditStudent() {
       const response = await api.post('/students', data);
 
       if (response.status !== 400) {
-        toast.success('Estudante Criado com sucesso');
+        toast.success('Студент успешно создан');
       } else {
-        toast.error('Studen already exits');
+        toast.error('Студент уже существует');
       }
     } else {
-      toast.error('Error preencha os campos !');
+      toast.error('Ошибка заполнения полей !');
     }
   }
   return (
@@ -145,16 +145,16 @@ export default function EditStudent() {
           <div id="option-student-home-page">
             <ul>
               <Link className="sess" to="/home">
-                Recentes
+                Недавний
               </Link>
-              <button id="creater-butt" type="button" onClick={showSidebar}>
+              <button id="createrbut" type="button" onClick={showSidebar}>
                 <IoIosAdd className="ic-left" color="#cbcbd6" size={25} />
-                Adicionar Estudante
+                Добавить студента
               </button>
 
               <Link to="/editstudent">
                 <MdCreate className="ic-left" color="#cbcbd6" size={25} />
-                Editar Estudante
+                Редактировать студента
               </Link>
 
               <Link to="/allstudent">
@@ -163,12 +163,12 @@ export default function EditStudent() {
                   color="#cbcbd6"
                   size={25}
                 />{' '}
-                listar Estudante
+                Список Студент
               </Link>
 
               <Link to="/deletstudent">
                 <MdDelete className="ic-left" color="#cbcbd6" size={25} />{' '}
-                Deletar Estudante
+                Удалить учащегося
               </Link>
             </ul>
           </div>
@@ -176,10 +176,10 @@ export default function EditStudent() {
           <div id="for-search">
             <form id="form-input-home-page" action="">
               <input
-                placeholder="search students"
+                placeholder="поиск студентов"
                 onChange={e => setSearch(e.target.value)}
               />
-              <button type="submit">Search</button>
+              <button type="submit">Поиск</button>
             </form>
 
             {filteredStudenty.map(item => (
@@ -192,13 +192,13 @@ export default function EditStudent() {
                   setModalContant(item);
                 }}
               >
-                <span id="borda">2</span>
+                <span id="borda">{item.hostel.number_hostel}</span>
                 <span className="sp">
                   {item.surname} {item.full_name}
                 </span>
                 <div id="univer-home">
                   <MdSchool color="#cbcbd6" size={20} />
-                  <span className="sp">UITS</span>
+                  <span className="sp">{item.college.name_faculty}</span>
                 </div>
                 <FiChevronRight color="#cbcbd6" size={20} />
               </div>
@@ -210,10 +210,10 @@ export default function EditStudent() {
                   <form id="form-student">
                     <div className="name-student">
                       <div id="surname">
-                        <strong>Username</strong>
+                        <strong>Фамилия</strong>
                         <input
                           type="text"
-                          name=""
+                          name="Фамилия"
                           id="input-surname"
                           placeholder={modalContant?.surname}
                           value={usernameStudent}
@@ -221,7 +221,7 @@ export default function EditStudent() {
                         />
                       </div>
                       <div id="fullname">
-                        <strong>Full name</strong>
+                        <strong>ИО</strong>
                         <input
                           placeholder={modalContant?.full_name}
                           type="text"
@@ -235,7 +235,7 @@ export default function EditStudent() {
 
                     <div className="name-student">
                       <div id="telefone-student">
-                        <strong>Telefone</strong>
+                        <strong>Телефон</strong>
                         <input
                           placeholder={modalContant?.number_phone}
                           type="text"
@@ -246,7 +246,7 @@ export default function EditStudent() {
                         />
                       </div>
                       <div id="country-student">
-                        <strong>País</strong>
+                        <strong>Страна</strong>
                         <input
                           placeholder={modalContant?.country?.countryStudent}
                           type="text"
@@ -260,7 +260,7 @@ export default function EditStudent() {
 
                     <div className="name-student">
                       <div id="room-student">
-                        <strong>Room</strong>
+                        <strong>Комната</strong>
                         <input
                           placeholder={modalContant?.rooms?.numberofRoom}
                           type="text"
@@ -271,33 +271,44 @@ export default function EditStudent() {
                         />
                       </div>
                       <div id="hostel-student">
-                        <strong>Hostel</strong>
-                        <input
-                          placeholder="hostel for students "
-                          type="text"
-                          name=""
+                        <strong>Общежитие</strong>
+                        <select
                           id="input-hostel"
                           value={hostel}
                           onChange={e => setHoste(e.target.value)}
-                        />
+                        >
+                          <option value="2">Общежитие 2 ВГУИТ</option>
+                          <option value="3">Общежитие 3 ВГУИТ</option>
+                          <option value="4">Общежитие 4 ВГУИТ</option>
+                          <option value="5">Общежитие 5 ВГУИТ</option>
+                        </select>
                       </div>
                     </div>
                     <div className="name-student">
                       <div id="room-student">
-                        <strong>College</strong>
-                        <input
-                          placeholder="College for students "
-                          type="text"
-                          name=""
-                          id="input-room"
+                        <strong>Факультет</strong>
+                        <select
+                          id="select"
                           value={college}
                           onChange={e => setColleg(e.target.value)}
-                        />
+                        >
+                          <option value="УИТС">УИТС</option>
+                          <option value="БО">БО</option>
+                          <option value="ПКВК">ПКВК</option>
+                          <option value="ПМА">ПМА</option>
+                          <option value="СПО">СПО</option>
+                          <option value="ТЕСТ">ТЕСТ</option>
+                          <option value="ТЕХНОЛОГИЧЕСКИЙ">
+                            ТЕХНОЛОГИЧЕСКИЙ
+                          </option>
+                          <option value="ЭИУ">ЭИУ</option>
+                          <option value="ЭХТ">ЭХТ</option>
+                        </select>
                       </div>
                       <div id="hostel-student">
-                        <strong>Photo of Student</strong>
+                        <strong>Фото студента</strong>
                         <input
-                          placeholder="Photo of Student"
+                          placeholder="Фото студента"
                           type="file"
                           name="arquivo"
                           id="arquivo"
@@ -313,7 +324,7 @@ export default function EditStudent() {
                       id="submit-student"
                       onClick={e => UpdateStudent(e, modalContant.id)}
                     >
-                      SALVAR
+                      СОХРАНИТЬ
                     </button>
                   </form>
                 </div>
@@ -333,20 +344,20 @@ export default function EditStudent() {
                       <AiIcons.AiOutlineClose />
                       <div className="name-student">
                         <div id="surname">
-                          <strong>Surname</strong>
+                          <strong>Фамилия</strong>
                           <input
                             type="text"
                             name="surname"
                             id="input-surname"
-                            placeholder="Surname"
+                            placeholder="Фамилия"
                             value={surname}
                             onChange={e => setSurname(e.target.value)}
                           />
                         </div>
                         <div id="fullname">
-                          <strong>Full name</strong>
+                          <strong>ИО</strong>
                           <input
-                            placeholder="Fullname"
+                            placeholder="ИО"
                             type="text"
                             name="fullname"
                             id="input-fullname"
@@ -358,7 +369,7 @@ export default function EditStudent() {
 
                       <div className="name-student">
                         <div id="telefone-student">
-                          <strong>Telefone</strong>
+                          <strong>Телефон</strong>
                           <input
                             placeholder="+7 9 * * * * * * * 5"
                             type="text"
@@ -369,9 +380,9 @@ export default function EditStudent() {
                           />
                         </div>
                         <div id="country-student">
-                          <strong>País</strong>
+                          <strong>Страна</strong>
                           <input
-                            placeholder="Country "
+                            placeholder="при.,Ангола"
                             type="text"
                             name="country"
                             id="input-country"
@@ -383,9 +394,9 @@ export default function EditStudent() {
 
                       <div className="name-student">
                         <div id="room-student">
-                          <strong>Room</strong>
+                          <strong>Комната</strong>
                           <input
-                            placeholder="Rooms for students "
+                            placeholder="Комнаты, пример 410"
                             type="text"
                             name=""
                             id="input-room"
@@ -394,33 +405,44 @@ export default function EditStudent() {
                           />
                         </div>
                         <div id="hostel-student">
-                          <strong>Hostel</strong>
-                          <input
-                            placeholder="hostel for students "
-                            type="text"
-                            name=""
+                          <strong>Общежитие</strong>
+                          <select
                             id="input-hostel"
                             value={hostels}
                             onChange={e => setHostel(e.target.value)}
-                          />
+                          >
+                            <option value="2">Общежитие 2 ВГУИТ</option>
+                            <option value="3">Общежитие 3 ВГУИТ</option>
+                            <option value="4">Общежитие 4 ВГУИТ</option>
+                            <option value="5">Общежитие 5 ВГУИТ</option>
+                          </select>
                         </div>
                       </div>
                       <div className="name-student">
                         <div id="room-student">
-                          <strong>College</strong>
-                          <input
-                            placeholder="College for students "
-                            type="text"
-                            name=""
-                            id="input-room"
+                          <strong>Факультет</strong>
+                          <select
+                            id="select"
                             value={colleges}
                             onChange={e => setCollege(e.target.value)}
-                          />
+                          >
+                            <option value="УИТС">УИТС</option>
+                            <option value="БО">БО</option>
+                            <option value="ПКВК">ПКВК</option>
+                            <option value="ПМА">ПМА</option>
+                            <option value="СПО">СПО</option>
+                            <option value="ТЕСТ">ТЕСТ</option>
+                            <option value="ТЕХНОЛОГИЧЕСКИЙ">
+                              ТЕХНОЛОГИЧЕСКИЙ
+                            </option>
+                            <option value="ЭИУ">ЭИУ</option>
+                            <option value="ЭХТ">ЭХТ</option>
+                          </select>
                         </div>
                         <div id="hostel-student">
-                          <strong>Photo of Student</strong>
+                          <strong>Фото студента</strong>
                           <input
-                            placeholder="Photo of Student"
+                            placeholder="Фото студента"
                             type="file"
                             name="arquivo"
                             id="arquivo"
@@ -434,7 +456,7 @@ export default function EditStudent() {
                         id="submit-student"
                         onClick={CreateNewStudent}
                       >
-                        SALVAR
+                        СОХРАНИТЬ
                       </button>
                     </form>
                   </div>
