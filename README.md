@@ -15,10 +15,13 @@ Home Page.
 Screen for creating a new student.
 
 
+![Снимок экрана (405)](https://user-images.githubusercontent.com/59142372/123421766-f4f67c00-d5c5-11eb-999f-1418090e3822.png)
+list all created students
 
-
-
-
+![Снимок экрана (406)](https://user-images.githubusercontent.com/59142372/123421883-20796680-d5c6-11eb-8145-4d0302b94986.png)
+search the student by name, surname, and Academic degree
+![Снимок экрана (408)](https://user-images.githubusercontent.com/59142372/123422306-adbcbb00-d5c6-11eb-887c-18aaa3a792b3.png)
+modal to eliminate a student
 
 
 #How does EVA work? ![🤔](https://static.xx.fbcdn.net/images/emoji.php/v9/t34/1/16/1f914.png)
