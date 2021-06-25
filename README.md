@@ -1,18 +1,18 @@
 
 # EVA
 ![Снимок экрана (401)](https://user-images.githubusercontent.com/59142372/123420279-0c346a00-d5c4-11eb-9812-4a72c51ec4ce.png)
-Esta é a tela de login.
+This is the login screen.
 
 ![Снимок экрана (402)](https://user-images.githubusercontent.com/59142372/123420808-b1e7d900-d5c4-11eb-97d2-6f9b45d63134.png)
 
-Para criar uma conta.
+To create an account.
 
 
 ![Снимок экрана (403)](https://user-images.githubusercontent.com/59142372/123421154-291d6d00-d5c5-11eb-8584-9d87bcffbf15.png)
 Home Page.
 
 ![Снимок экрана (404)](https://user-images.githubusercontent.com/59142372/123421219-40f4f100-d5c5-11eb-8750-1bce05627eae.png)
-Tela para criação de um novo estudante.
+Screen for creating a new student.
 
 
 
