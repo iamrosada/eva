@@ -41,3 +41,6 @@ EVA was developed with the intention of helping departments of companies or univ
 
 
 We have the UAN university in Angola ! ![🇦🇴](https://static.xx.fbcdn.net/images/emoji.php/v9/tc5/1/16/1f1e6_1f1f4.png), which is the headquarters of the university, and another department around the Martyrs or International Airport, this way if a university employee requests the data of a student who was transferred from the University Campus to these departments, through a click or by typing the name of the student, all the data linked to the student will be shown. And if on Campus another employee edits the student's data, in seconds these changes will be shown to the department located in Mártires.
+
+
+the backend that is ending i put in a private repository because of some things. as passwords from my s3 AWS bucket, and deployed to Heroku. if you want to see you can send an email to luisrosada@mail.ru
