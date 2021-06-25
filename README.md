@@ -1,5 +1,26 @@
 
 # EVA
+![Снимок экрана (401)](https://user-images.githubusercontent.com/59142372/123420279-0c346a00-d5c4-11eb-9812-4a72c51ec4ce.png)
+Esta é a tela de login.
+
+![Снимок экрана (402)](https://user-images.githubusercontent.com/59142372/123420808-b1e7d900-d5c4-11eb-97d2-6f9b45d63134.png)
+
+Para criar uma conta.
+
+
+![Снимок экрана (403)](https://user-images.githubusercontent.com/59142372/123421154-291d6d00-d5c5-11eb-8584-9d87bcffbf15.png)
+Home Page.
+
+![Снимок экрана (404)](https://user-images.githubusercontent.com/59142372/123421219-40f4f100-d5c5-11eb-8750-1bce05627eae.png)
+Tela para criação de um novo estudante.
+
+
+
+
+
+
+
+
 #How does EVA work? ![🤔](https://static.xx.fbcdn.net/images/emoji.php/v9/t34/1/16/1f914.png)
 
 Eva- was created to help in the Management and Supervision of Students of the Angolan Community located in Russia, specifically in the city of Voronezh, and it gives the possibility to list all Students based on Country, University, Faculty, Dormitory, Room and etc.
