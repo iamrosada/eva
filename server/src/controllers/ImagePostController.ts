@@ -1,45 +1,38 @@
-import { Response , Request} from "express";
+import { Response, Request } from "express";
 import { getCustomRepository } from "typeorm";
-import { multerConfig } from'../config/multer';
-import multer from 'multer';
-import {ImagePostRepository } from '../repositories/PostImageRepository'    
 
-class PostImage{
+import { ImagePostRepository } from "../repositories/PostImageRepository";
 
-        async create( request:Request, response:Response){
-            
-            const {originalname:name, size, /* filename: */key,location:url=""} = request.file;
-            
-            const imagemPostRepository = getCustomRepository(ImagePostRepository);
-          
-            const imagemStudenty = imagemPostRepository.create({
-                name,
-                size,
-                key,
-                url
-            })
-           
-            await imagemPostRepository.save(imagemStudenty)
-    
-            return response.send(imagemStudenty);
-    
-    
-        }
-    
-       
-         async show(request:Request, response:Response){
-         
-            const countryRepository = getCustomRepository(ImagePostRepository);
-    
-            const allcountries = await countryRepository.find()
-                 console.log(allcountries);
-            return response.json(allcountries);
-    
-        } 
-     
-    }
-    
-  
+class PostImage {
+  async create(request: Request, response: Response) {
+    const {
+      originalname: name,
+      size,
+      filename: key,
+      path: url = "",
+    } = request.file;
 
+    const imagemPostRepository = getCustomRepository(ImagePostRepository);
 
-export{PostImage}
+    const imagemStudenty = imagemPostRepository.create({
+      name,
+      size,
+      key,
+      url,
+    });
+
+    await imagemPostRepository.save(imagemStudenty);
+
+    return response.send(imagemStudenty);
+  }
+
+  async show(request: Request, response: Response) {
+    const imageRepository = getCustomRepository(ImagePostRepository);
+
+    const allimage = await imageRepository.find();
+
+    return response.json(allimage);
+  }
+}
+
+export { PostImage };
