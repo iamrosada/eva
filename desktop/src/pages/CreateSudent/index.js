@@ -17,8 +17,8 @@ export default function CreateStudente() {
   const [phone, setPhone] = useState('');
   const [country, setCountry] = useState('');
   const [rooms, setRooms] = useState('');
-  const [colleges, setCollege] = useState('');
-  const [hostels, setHostel] = useState('');
+  const [colleges, setCollege] = useState('УИТС');
+  const [hostels, setHostel] = useState('2');
   const [file, setFile] = useState('');
   const [sidebar, setSidebar] = useState(false);
 
@@ -52,12 +52,12 @@ export default function CreateStudente() {
       const response = await api.post('/students', data);
 
       if (response.status !== 400) {
-        toast.success('Estudante Criado com sucesso');
+        toast.success('Студент успешно создан');
       } else {
-        toast.error('Studen already exits');
+        toast.error('Студент уже существует');
       }
     } else {
-      toast.error('Error preencha os campos !');
+      toast.error('Ошибка заполнения полей!');
     }
   }
 
