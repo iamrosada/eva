@@ -41,7 +41,52 @@ $AWS_ACCESS_KEY_ID=
 $AWS_SECRET_ACCESS_KEY=
 $AWS_DEFAULT_REGION=
 
-<p> Acesse a pasta config que esta dentro da pasta src, abre o arquivo multer.ts, vai até a linha 26,e altera o bucket, caso
+Acesse a pasta config que esta dentro da pasta src, abre o arquivo multer.ts, vai até a linha 26,e altera o bucket, caso
 estiveres a trabalhar online coloca o nome do bucket da AWS que criaste. caso for local podes escrever local.
- <p/> .
 ```
+### 🎲 Deploy: Rodando o Back End (servidor no Heroku)
+
+```bash
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd server
+
+# Execute o seguinte comando no terminal/cmd para gerar o dist 
+$ yarn build 
+
+# Acesse a Tua conta no heroku e faz o deploy
+# guarda o link do servidor para usar no front end.
+
+```
+### 🎲 Rodando o Front End (Aplicativo desktop)
+
+```bash
+# Clone este repositório
+$ git clone <https://github.com/iamrosada/eva>
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd desktopPortugues
+
+
+# Instale as dependências
+$ npm install ou simplesmente yarn
+
+# Execute a aplicação em modo de desenvolvimento
+$ yarn build
+
+```
+  ### 🎲 Gerando o executável AP.exe (Aplicativo desktop)
+
+```bash
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd desktopPortugues
+
+# Acesse a pasta server, no arquivo api.js coloca o link do backend que fizeste deploy. 
+
+# Execute o seguinte comando no terminal/cmd para gerar o dist e build folder
+$ yarn build
+
+# Depois de finalizar, abre a pasta dist e terá um arquivo com o nome EVA.exe, clica no mesmo e permita que ele seja instalado no teu PC. 
+```
+
