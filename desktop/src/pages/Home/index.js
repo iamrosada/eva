@@ -65,12 +65,12 @@ export default function Home() {
       const response = await api.post('/students', data);
 
       if (response.status !== 400) {
-        toast.success('Estudante Criado com sucesso');
+        toast.success('Студент успешно создан');
       } else {
-        toast.error('Studen already exits');
+        toast.error('Студент уже существует');
       }
     } else {
-      toast.error('Error preencha os campos !');
+      toast.error('Ошибка заполнения полей !');
     }
   }
 
