@@ -291,7 +291,7 @@ export default function AllStudent() {
                   <div id="students-h">
                     <span id="borda">{item.hostel.number_hostel}</span>
                     <span className="sp">Фамилия</span>
-                    <span className="sp">{item.surname}</span>
+                    <span className="rsp">{item.surname}</span>
                     <div id="univer-home">
                       <MdSchool color="#cbcbd6" size={20} />
                       <span className="sp">{item.college.name_faculty}</span>
