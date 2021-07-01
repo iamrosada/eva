@@ -1,0 +1,100 @@
+
+code {
+  font-family: 'Roboto', sans-serif,
+    monospace;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+ *{
+   margin:0;
+   padding:0;
+   outline:0;
+   box-sizing:border-box;
+ }
+ html,body,#root {
+   background:#e5e5e5;
+   -webkit-font-smoothing: antialiased;
+
+   font-family: 'Roboto', sans-serif;
+
+
+ }
+ ::-webkit-scrollbar {
+  width:6px;
+  height: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    }
+  ::-webkit-scrollbar-track {
+    background:#333;
+    }
+ body, input, button{
+   font:14px Roboto, sans-serif;
+
+ }
+ button,li,ul{
+  text-transform: uppercase;
+ }
+
+#root{
+
+  --color-iceav:#FF4040;
+  --color-ceav:#ed1c24;
+  --color-input-ceav:#f00;
+  --purple: #6f42c1;
+
+
+
+
+
+
+  --color-borda:#7b68ee;
+  --color-input:#e1e9ee;
+  --color-icons:#c7d1d8;
+  --color-white:#fff;
+  --color-black:rgba(0,0,0,.9);
+  --color-gray:rgba(0,0,0,.15);
+  --color-menu: #0071ce;
+  --color-border-bottom: #ebecef;
+  --color-border-top: #ebecef;
+  --color-text:#66676c;
+  --color-input-desable: #ebecef;
+  --color-letter-desktop:#838488;
+  --color-sinza:#808080;
+
+    --blue: #007bff;
+    --indigo: #7b68ee;
+
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family-sans-serif: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+
+
+
+  }
+ button{
+   cursor:pointer;
+ }

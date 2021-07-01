@@ -1,0 +1,283 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+#home-page{
+   display:flex;
+   flex-direction: column;
+
+}
+#header-home-page{
+    padding: 10px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background:var(--color-ceav);
+
+
+}
+#avatar-home-page{
+    display: flex;
+    flex-direction: column;
+}
+.avatar-name-univer{
+    font-weight: bold;
+    margin-left: 10px;
+}
+#icon-univer-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#das-home-page{
+    background:#1e1f54;
+    font-weight:bolder;
+    color:white;
+    border-radius: 8px;
+    height: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-family: Roboto;
+
+}
+
+#input-home-page{
+    border:none;
+    height: 30px;
+    width: 400px;
+    border-radius:9px;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 12px;
+    letter-spacing: -.03em;
+    font-weight: 400;
+}
+
+#user-page{
+    font-weight: bolder;
+    font-size: 12px;
+    margin: 3px;
+}
+section#all-student-home-page{
+    display: flex;
+    flex-direction: column;
+    max-width: 1199px;
+    margin-top: 10px;
+    padding: 0 30px;
+
+}
+
+
+#perfil-student-home-page{
+    display:flex;
+    justify-content:space-between;
+}
+#perfil-student-home-page li,a:hover{
+   background: #719ECE;
+   color:white;
+
+}
+#perfil-student-home-page li.select,a{
+    background: #719ECE;
+    color:white;
+}
+#perfil-student-home-page li,a{
+    list-style:none;
+    margin-bottom:10px;
+    margin-right: 10px;
+    background: white;
+    padding: 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#333;
+    font-size: 13px;
+    font-family: Roboto;
+    letter-spacing: -.03em;
+    font-weight: 500;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition-duration: 3s;
+    text-decoration: none;
+
+}
+ svg.ic-left{
+    margin-right: 10px;
+    display: flex;
+}
+
+#students-h{
+    display: flex;
+    align-items: center;
+    letter-spacing: -.03em;
+    font-weight: 700;
+    justify-content: space-between;
+    width: 580px;
+
+}
+div#student-table-delete{
+    width: 580px;
+    height: 100px;
+    transition-duration: 0.2s;
+    letter-spacing: -.03em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+div#student-table-delete:hover{
+    transform:translateX(10px);
+}
+#borda{
+    border: 2px solid var(--color-ceav);
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    display: flex;
+    color:var(--color-ceav);
+    justify-content: center;
+    align-items: center;
+}
+
+.sp{
+    color:#333;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#univer-home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form#form-input-home-page{
+    max-width: 900px;
+    display:flex;
+}
+#for-search{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+     margin: 0 auto;
+}
+form#form-input-home-page input{
+    height: 40px;
+    padding: 0 24px;
+    border:0;
+    border-radius: 5px 0 0 5px;
+    width: 400px;
+    margin-bottom:18px ;
+}
+form#form-input-home-page input::placeholder{
+    color:#a8a8b3;
+}
+form#form-input-home-page button{
+    width: 80px;
+    height: 40px;
+    background: var(--color-ceav);
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    color:white;
+    font-weight: bold;
+    transition: background-color 0.2s;
+
+}
+form#form-input-home-page button:hover{
+    background:var(--color-ceav);
+}
+
+div#student-table-delete{
+    display: flex;
+    flex-direction: column;
+    background: white;
+
+    border-radius: 4px;
+    font-size: 12px;
+    font-family: Roboto;
+    margin-bottom: 10px;
+
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+    font-size: 12px;
+    font-family: Roboto;
+  }
+  td{
+    color:var(--color-borda);
+  }
+
+  svg.afastar-delete{
+    margin-right:10px
+  }
+
+  form#modal-deletar{
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      border-radius: 4px;
+      background:white;
+  }
+  #title-modal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-family: Roboto;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  div#modal-button-confirm{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  button#confirm{
+    width: 130px;
+    height: 40px;
+    background: white;
+    border-radius: 4px;
+    border:2.05px solid  red;
+    transition: border 0.2s ease 0s;
+    color:white;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    color:  rgb(135, 134, 139);
+    font-family: Roboto;
+    font-size: 12px;
+}
+button#confirm:hover{
+    background: rgb(202, 16, 16);
+    color:white;
+}
+
+
+button#no-confirm{
+    width: 130px;
+    height: 40px;
+    background: white;
+    border-radius: 4px;
+    border:2.05px solid  var(--color-borda);
+    transition: border 0.2s ease 0s;
+    color:white;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    color:  rgb(135, 134, 139);
+    font-family: Roboto;
+    font-size: 12px;
+}
+button#no-confirm:hover{
+    background: var(--color-borda);
+    color:white;
+}
+li{
+  text-transform: uppercase;
+}
+.rsp{
+     color:#5353c7
+}

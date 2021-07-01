@@ -1,0 +1,24 @@
+button#creater-butt{
+  border:none;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 160px;
+  margin-right: 10px;
+  border-radius: 4px;
+  background: white;
+  height: 35px;
+  transition: background-color 0.2s;
+
+
+}
+button#creater-butt:hover{
+  background: #719ECE;
+  color:white;
+
+}
+li{
+  text-transform: uppercase;
+}
