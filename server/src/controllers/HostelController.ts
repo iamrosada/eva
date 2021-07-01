@@ -1,50 +1,40 @@
-import { Response , Request} from "express"
+import { Response, Request } from "express";
 import { getCustomRepository } from "typeorm";
 
-import {HostelRepository} from '../repositories/HostelsRepository'
+import { HostelRepository } from "../repositories/HostelsRepository";
 
-class HostelController{
+class HostelController {
+  async create(request: Request, response: Response) {
+    const { number_hostel } = request.body;
 
-    async create( request:Request, response:Response){
-        const {number_hostel} = request.body;
+    const hostelRepository = getCustomRepository(HostelRepository);
 
-        const countryRepository = getCustomRepository(HostelRepository);
-        
-      
-        const countryAlreadyExists = await countryRepository.findOne({
-            number_hostel
-        })
+    const hostelAlreadyExists = await hostelRepository.findOne({
+      number_hostel,
+    });
 
-        if(countryAlreadyExists){
-            return response.status(400).json({
-                error:"Hostel already exits",
-            })
-        
-        }
-
-        const CountryStudenty = countryRepository.create({
-            number_hostel
-
-        })
-        
-        await countryRepository.save(CountryStudenty)
-
-        return response.send(CountryStudenty);
-
-
+    if (hostelAlreadyExists) {
+      return response.status(400).json({
+        error: "Hostel already exits",
+      });
     }
 
-   
-    async show(request:Request, response:Response){
-     
-        const countryRepository = getCustomRepository(HostelRepository);
+    const hostelStudenty = hostelRepository.create({
+      number_hostel,
+    });
 
-        const allcountries = await countryRepository.find()
-             console.log(allcountries);
-        return response.json(allcountries);
+    await hostelRepository.save(hostelStudenty);
 
-    }
- 
+    return response.send(hostelStudenty);
+  }
+
+  async show(request: Request, response: Response) {
+    const hostelRepository = getCustomRepository(HostelRepository);
+
+    const allhostels = await hostelRepository.find();
+
+    return response.json(allhostels);
+  }
 }
 
-export {HostelController}
+export { HostelController };
