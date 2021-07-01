@@ -133,3 +133,15 @@ $ yarn build
 
 # Depois de finalizar, abre a pasta dist e terá um arquivo com o nome EVA.exe, clica no mesmo e permita que ele seja instalado no teu PC.
 ```
+
+### Autor
+
+---
+
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59142372?v=4" width="100px;" alt=""/>
+ <br />
+
+Feito com ❤️ por Luis de Água Rosada 👋🏽 Entre em contato!
+
+[![Twitter Badge](https://img.shields.io/badge/-@iamrosada_-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/iamrosada_)](https://twitter.com/iamrosada_)
+[![Gmail Badge](https://img.shields.io/badge/-luisrosada@mail.ru-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:luisrosada@mail.ru)](mailto:luisrosada@mail.ru)
