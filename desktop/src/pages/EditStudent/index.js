@@ -24,12 +24,12 @@ export default function EditStudent() {
   const [allstudent, setAllStudent] = useState([]);
   const [search, setSearch] = useState('');
   const [filteredStudenty, setFilteredStudenty] = useState([]);
-  const [college, setColleg] = useState('');
+  const [college, setColleg] = useState('УИТС');
   const [usernameStudent, setUsernameStudent] = useState('');
   const [fullnameStudent, setFullnameStudent] = useState('');
   const [countries, setCountryStudent] = useState('');
   const [phoneStudent, setPhoneStudent] = useState('');
-  const [hostel, setHoste] = useState('');
+  const [hostel, setHoste] = useState('2');
   const [roomStudent, setRoomStudent] = useState('');
 
   const [surname, setSurname] = useState('');
@@ -75,21 +75,24 @@ export default function EditStudent() {
     e.preventDefault();
     /* console.log(`O ID${studentId}`); */
 
-    const data = new FormData();
-
-    data.append('surname', usernameStudent);
-    data.append('full_name', fullnameStudent);
-    data.append('number_phone', phoneStudent);
-    data.append('country', countries);
-    data.append('rooms', roomStudent);
-    data.append('college', college);
-    data.append('hostel', hostel);
-    data.append('file', file);
+    const data = {
+      surname: usernameStudent,
+      full_name: fullnameStudent,
+      number_phone: phoneStudent,
+      country: countries,
+      rooms: roomStudent,
+      college,
+      hostel,
+    };
 
     if (
       usernameStudent !== '' &&
       fullnameStudent !== '' &&
-      phoneStudent !== ''
+      phoneStudent !== '' &&
+      countries !== '' &&
+      roomStudent !== '' &&
+      college !== '' &&
+      hostel !== ''
     ) {
       const response = await api.put(`/students/${studentId}`, data);
 
@@ -306,7 +309,7 @@ export default function EditStudent() {
                         </select>
                       </div>
                       <div id="hostel-student">
-                        <strong>Фото студента</strong>
+                        {/* <strong>Фото студента</strong>
                         <input
                           placeholder="Фото студента"
                           type="file"
@@ -314,7 +317,7 @@ export default function EditStudent() {
                           id="arquivo"
                           encType="multipart/form-data"
                           onChange={onChangePicture}
-                        />
+                        /> */}
                       </div>
                     </div>
 
