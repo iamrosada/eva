@@ -129,6 +129,7 @@ section#all-student-home-page{
     margin-bottom: 10px;
     justify-content: space-between;
     transition-duration: 0.2s;
+    text-transform: uppercase;
 
 }
 

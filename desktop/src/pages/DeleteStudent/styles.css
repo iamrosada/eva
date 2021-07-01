@@ -128,6 +128,7 @@ div#student-table-delete{
     transition-duration: 0.2s;
     letter-spacing: -.03em;
     font-weight: 700;
+    text-transform: uppercase;
 }
 div#student-table-delete:hover{
     transform:translateX(10px);
@@ -212,7 +213,7 @@ th, td {
     font-family: Roboto;
   }
   td{
-    color:#cbcbd6
+    color:#04D361
   }
 
   svg.afastar-delete{

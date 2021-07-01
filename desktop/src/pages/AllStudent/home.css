@@ -194,7 +194,7 @@ th, td {
     font-family: Roboto;
   }
   td{
-    color:#cbcbd6
+    color:#04D361
   }
 #al{
   display: flex;
@@ -219,21 +219,24 @@ th, td {
   transform:translateX(10px);
 }
 div#avtar-s{
-  max-height:350px;
+  max-height:250px;
   max-width: 280px;
-
+  height: 100%;
+  width: 100%;
 }
 img#avatar-stu
 {
-  max-height:350px;
+  object-fit: contain;;
+  max-height:140px;
   height: 100%;
   width: 100%;
   max-width: 280px;
+
   border-radius:8%;
   margin-bottom: 2vh;
   padding: 5px;
   margin-top: 15px;
- /*  object-fit: none; */
+
 }
 button#createrbut{
   border:none;
@@ -255,4 +258,9 @@ button#createrbut:hover{
   background: #719ECE;
   color:white;
 
+}
+
+.rsp
+{
+  color:#04D361
 }
