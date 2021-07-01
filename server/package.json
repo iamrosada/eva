@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev --files --transpile-only --ignore-watch node_modules src/server.ts",
-    "typeorm": "ts-node-dev node_modules/typeorm/cli.js"
+    "typeorm": "ts-node-dev node_modules/typeorm/cli.js",
+    "start": "node dist/server.js",
+    "build": "tsc"
   },
   "dependencies": {
     "@types/cors": "^2.8.10",
@@ -13,7 +15,7 @@
     "aws-sdk": "^2.903.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.1",
-    "cors": "^2.8.5", 
+    "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
@@ -28,7 +30,9 @@
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.11",
+    "@types/morgan": "^1.9.2",
     "@types/multer": "^1.4.3",
     "@types/multer-s3": "^2.7.9",
     "@types/uuid": "^8.3.0",
