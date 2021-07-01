@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { MdBusiness } from 'react-icons/md';
 import './Header.css';
 import { useHistory } from 'react-router-dom';
+import logout from '../../images/logout.svg';
 
 export default function Header() {
   const history = useHistory();
@@ -12,7 +14,7 @@ export default function Header() {
   return (
     <header id="header-home-page">
       <div>
-        <span id="das-home-page">evaBoard</span>
+        <span id="das-home-page">Eva in ВГУИТ</span>
       </div>
       <div>
         <h2 id="vsuet-name">
@@ -32,7 +34,7 @@ export default function Header() {
               goTocadastro(e);
             }}
           >
-            выйти
+            <img src={logout} alt="" />
           </button>
         </div>
 
