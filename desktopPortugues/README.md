@@ -11,7 +11,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 - [Docker](https://www.docker.com/)
 - [TypeORM](https://typeorm.io/#/)
-
+- [Heroku](https://id.heroku.com/login)
+- [Amazon AWS s3](https://signin.aws.amazon.com/)
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
@@ -51,8 +52,8 @@ estiveres a trabalhar online coloca o nome do bucket da AWS que criaste. caso fo
 # Acesse a pasta do projeto no terminal/cmd
 $ cd server
 
-# Execute o seguinte comando no terminal/cmd para gerar o dist 
-$ yarn build 
+# Execute o seguinte comando no terminal/cmd para gerar o dist
+$ yarn build
 
 # Acesse a Tua conta no heroku e faz o deploy
 # guarda o link do servidor para usar no front end.
@@ -82,11 +83,11 @@ $ yarn build
 # Acesse a pasta do projeto no terminal/cmd
 $ cd desktopPortugues
 
-# Acesse a pasta server, no arquivo api.js coloca o link do backend que fizeste deploy. 
+# Acesse a pasta server, no arquivo api.js coloca o link do backend que fizeste deploy.
 
 # Execute o seguinte comando no terminal/cmd para gerar o dist e build folder
 $ yarn build
 
-# Depois de finalizar, abre a pasta dist e terá um arquivo com o nome EVA.exe, clica no mesmo e permita que ele seja instalado no teu PC. 
+# Depois de finalizar, abre a pasta dist e terá um arquivo com o nome EVA.exe, clica no mesmo e permita que ele seja instalado no teu PC.
 ```
 
