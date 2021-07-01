@@ -1,0 +1,81 @@
+{
+  "name": "Eva",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Я ЛУИШ РОЗАДА сделал это приложение, чтобы помочь в административной работе ВГУИТ.",
+  "author": "luis de Água Rosada",
+  "build": {
+    "appId": "myledgerapp",
+    "extends": null,
+    "files": [
+      "./build/**/*",
+      "./public/electron.js"
+    ]
+
+  },
+  "main": "public/electron.js",
+  "homepage": ".",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.21.1",
+    "electron-is-dev": "^2.0.0",
+    "electron-packager": "^15.2.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-react": "7.21.5",
+    "history": "^5.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.2",
+    "react-toastify": "^7.0.3",
+    "react-transition-group": "^4.4.1",
+    "react-virtuoso": "^1.8.6",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron-build": "electron-builder",
+    "release": "yarn react-build && electron-builder --publish=always",
+    "build": "yarn react-build && yarn electron-build",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite  --platform=win32 --arch=x64  --asar --icon=assets/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"vsuet\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^6.0.2",
+    "electron": "^12.0.5",
+    "electron-builder": "^22.10.5",
+    "eslint": "^7.25.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1",
+    "wait-on": "^5.3.0"
+  }
+}
