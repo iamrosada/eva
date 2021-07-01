@@ -6,7 +6,7 @@ import { Country } from "./Country";
 import { HostelStudenty } from "./Hostel";
 import { ImageStudenty } from "./Post";
 import { Room } from "./Room";
-
+import {Course }from  "./Course";
 @Entity("students")
  class Student{
      @PrimaryColumn()
@@ -32,7 +32,10 @@ import { Room } from "./Room";
 
      @ManyToOne(type=>ImageStudenty, students=>Student,{eager:true})
      imagepost:ImageStudenty; 
-     
+    
+     @ManyToOne(type=>Course,student=>Student,{eager:true})
+     course:Course;
+
      @Column()
      number_phone:string;
      
