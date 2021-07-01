@@ -23,10 +23,10 @@ export default function SingOut() {
         // window.location.href = '/home';
         history.push('/home');
       } else {
-        toast.error('Error ao cadastar o usuario!');
+        toast.error('Ошибка при входе в систему!');
       }
     } else {
-      toast.error('Error preencha os campos !');
+      toast.error('Ошибка заполнения полей !');
     }
   }
 
