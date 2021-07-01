@@ -109,7 +109,7 @@ export default function DeleteStudent() {
     const response = await api.delete(`/students/${studentId}`);
 
     if (response.status !== 400) {
-      toast.error('Студент успешно удален');
+      toast.success('Студент успешно удален');
     }
   }
 
@@ -169,7 +169,7 @@ export default function DeleteStudent() {
                 }}
               >
                 <div id="students-h">
-                  <span id="borda">2</span>
+                  <span id="borda">{item.hostel.number_hostel}</span>
                   <span className="sp">{item.surname}</span>
                   <div id="univer-home">
                     <MdSchool color="#cbcbd6" size={20} />
