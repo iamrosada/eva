@@ -23,7 +23,7 @@ modal to eliminate a student
 ![Снимок экрана (409)](https://user-images.githubusercontent.com/59142372/123422510-fe341880-d5c6-11eb-8d88-963fa6562411.png)
 edit a student's data
 
-#How does EVA work? ![🤔](https://static.xx.fbcdn.net/images/emoji.php/v9/t34/1/16/1f914.png)
+#How does EVA work ? ![🤔](https://static.xx.fbcdn.net/images/emoji.php/v9/t34/1/16/1f914.png)
 
 Eva- foi criada para ajudar na Gestão e Supervisão de Alunos da Comunidade Angolana localizada na Rússia, especificamente na cidade de Voronezh, e dá a possibilidade de listar todos os Alunos por País, Universidade, Corpo Docente, Dormitório, Quarto e etc.
 
